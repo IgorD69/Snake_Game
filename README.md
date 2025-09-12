@@ -2,7 +2,7 @@
 
 # Snake Game in  C++
 
-W - move UP
+W - move UP "\n"
 A - move Left
 D - move Right
 S - move Down
