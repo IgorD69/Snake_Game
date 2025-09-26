@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Player.hpp"
-
 class Map{
     int witdh = 20;
     int height = 20;
