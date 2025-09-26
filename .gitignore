@@ -1,0 +1,34 @@
+# --- Build files ---
+*.o
+*.obj
+*.out
+*.exe
+*.bin
+
+# --- Libraries ---
+*.a
+*.so
+*.dll
+*.dylib
+
+# --- Debugging / Logs ---
+*.gch
+*.pch
+*.log
+
+# --- Temporary folders ---
+tmp/
+temp/
+
+# --- Backup files ---
+*~
+*.swp
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.code-workspace
+
+# --- OS cache ---
+.DS_Store
+Thumbs.db

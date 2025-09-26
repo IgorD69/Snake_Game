@@ -18,3 +18,12 @@ Collect the Apples to grow larger. Don't bump your head into yourself Have Fun!!
 - `Player.hpp` - The Snake of our Game, the Player interacts with
 - `Position.hpp` - Get the curent position of the Player
 - `Renderer.hpp` - Renders the Screen(Collors, text, ASCII Graphics)
+
+# Lab2
+
+## How to Compile
+- `make clean`
+- `make`
+
+## Run
+-`./Player.out`
