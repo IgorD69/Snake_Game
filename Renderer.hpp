@@ -1,5 +1,8 @@
 #pragma once
+
+#include "Abstract_Renderer.hpp"
 #include "Position.hpp"
+
 
 class Renderer{
     void Init();
@@ -8,5 +11,6 @@ class Renderer{
     void ClearScreen();
     void PutText(Position position, char *text);
     void PutBox(int x, int y, int witdh, int height);
-    void Draw(Position topLeft, Position bottomRight, char **image);
+    virtual void Draw(Position topLeft, Position bottomRight, char **image);
+    virtual void WriteText(Position position, char* text);
 };
