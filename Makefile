@@ -1,7 +1,7 @@
 all: SnakeGame
 
 SnakeGame: Apple.o Map.o Direction.o Engine.o Renderer.o Position.o Player.o main.o
-	g++ -o Player.out Apple.o Map.o Direction.o Engine.o Renderer.o Position.o Player.o main.o
+	g++ -o SnakeGame.out Apple.o Map.o Direction.o Engine.o Renderer.o Position.o Player.o main.o
 
 Apple.o:
 	g++ Apple.cpp -o Apple.o -c
