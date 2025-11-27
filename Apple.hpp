@@ -1,5 +1,6 @@
 #pragma once
 
+// #include <cstdlib>
 #include <iostream>
 #include "Position.hpp"
 
@@ -10,6 +11,7 @@ public:
    Apple(const Position& position);
    Apple(const Apple& other);
    Position GetPosition() const;
+
 
    Apple operator = (const Apple& other);
    bool operator == (const Apple& other) const;
