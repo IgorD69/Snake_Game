@@ -3,14 +3,17 @@
 #include "Position.hpp"
 #include "Direction.hpp"
 
+#include <vector>
+
 class Player {
-   Position _segments[100];
-   int _nr_segments;
+   std::vector<Position> _segments;
 public:
-    Player();
+   Player();
    Player(const Position& _position);
    void Move(Direction direction);
    int GetSize() const;
    Position GetPosition() const;
+
+   std::vector<Position> GetSegments() const;
    void Eat(const Apple& apple);
 };

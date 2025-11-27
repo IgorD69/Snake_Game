@@ -1,30 +1,33 @@
 all: SnakeGame
 
-SnakeGame: Apple.o Map.o Direction.o Engine.o Renderer.o Position.o Player.o main.o
-	g++ -o SnakeGame.out Apple.o Map.o Direction.o Engine.o Renderer.o Position.o Player.o main.o
+SnakeGame: Apple.o Map.o Direction.o Engine.o CmdListener.o Renderer.o Position.o Player.o main.o
+	g++ -o Snake.out Apple.o Map.o Direction.o Engine.o CmdListener.o Renderer.o Position.o Player.o main.o
 
-Apple.o:
+Apple.o: Apple.cpp
 	g++ Apple.cpp -o Apple.o -c
 
-Map.o:
+Map.o: Map.cpp
 	g++ Map.cpp -o Map.o -c
 
-Direction.o:
+Direction.o: Direction.cpp
 	g++ Direction.cpp -o Direction.o -c
 
-Engine.o:
+Engine.o: Engine.cpp
 	g++ Engine.cpp -o Engine.o -c
 
-Renderer.o:
+CmdListener.o: CmdListener.cpp
+	g++ CmdListener.cpp -o CmdListener.o -c
+
+Renderer.o: Renderer.cpp
 	g++ Renderer.cpp -o Renderer.o -c
 
-Position.o:
+Position.o: Position.cpp
 	g++ Position.cpp -o Position.o -c
 
-Player.o:
+Player.o: Player.cpp
 	g++ Player.cpp -o Player.o -c
 
-main.o:
+main.o: main.cpp
 	g++ main.cpp -o main.o -c
 
 clean:
