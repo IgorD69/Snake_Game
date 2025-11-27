@@ -1,21 +1,34 @@
 #pragma once
 
-// #include "Abstract_Renderer.hpp"
-#include "Position.hpp"
+#include <SFML/Graphics.hpp>
+#include <string>
+#include <vector>
 
 
-class Renderer : public AbstractRenderer
-{
+struct Position {
+    int x;
+    int y;
+};
+
+using Drawables = std::vector<sf::Drawable*>;
+
+class Renderer {
+private:
+    sf::RenderWindow window;
 public:
-    Renderer() = default;
-    virtual ~Renderer() = default;
+    Renderer(int width, int height, const std::string& title);
 
-    void Init();
-    void SetBackgroundColor(int r, int g, int b);
-    void SetForegroundColor(int r, int g, int b);
-    void PutText(Position position, char* text);
-    void PutBox(int x, int y, int width, int height);
-    virtual void ClearScreen() override;
-    virtual void DrawImage(Position topLeft, Position bottomRight, const Image& image) override;
-    virtual void WriteText(Position position, const std::string& text) override;
+    Renderer(const Renderer&) = delete;
+    Renderer& operator=(const Renderer&) = delete;
+
+    bool IsOpen() const;
+    void ClearScreen();
+    void Display();
+
+    // --- Desenare și I/O ---
+    bool PollEvent(sf::Event& event);
+    void Draw(const Drawables& objects);
+    void WriteText(Position position, const std::string& text, int size = 24);
+
+    sf::RenderWindow& GetWindow();
 };

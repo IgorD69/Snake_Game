@@ -15,11 +15,11 @@ Direction.o: Direction.cpp
 Engine.o: Engine.cpp
 	g++ Engine.cpp -o Engine.o -c
 
-CmdListener.o: CmdListener.cpp
-	g++ CmdListener.cpp -o CmdListener.o -c
+# CmdListener.o: CmdListener.cpp
+# 	g++ CmdListener.cpp -o CmdListener.o -c
 
-Renderer.o: Renderer.cpp
-	g++ Renderer.cpp -o Renderer.o -c
+# Renderer.o: Renderer.cpp
+# 	g++ Renderer.cpp -o Renderer.o -c
 
 Position.o: Position.cpp
 	g++ Position.cpp -o Position.o -c
