@@ -1,37 +1,93 @@
-CXX = g++
-CXXFLAGS = -std=c++11 -Wall
-RAYLIB_FLAGS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+# ======================================================
+#               Snake Game - Build System
+#               Autor: Igor Dodan • 2025
+# ======================================================
 
-all: Snake.out
+CXX       = g++
+CXXFLAGS  = -std=c++17 -Wall -Wextra -O2
+LDFLAGS   = -lraylib -lm -lpthread -ldl
 
-Snake.out: Apple.o Map.o Direction.o Engine.o Renderer.o Position.o Player.o main.o
-	$(CXX) -o Snake.out Apple.o Map.o Direction.o Engine.o Renderer.o Position.o Player.o main.o $(RAYLIB_FLAGS)
+SRC_DIR   = .
+OBJ_DIR   = obj
+BIN_DIR   = bin
+TEST_DIR  = tests
 
-Apple.o: Apple.cpp
-	$(CXX) $(CXXFLAGS) -c Apple.cpp
+TARGET     = $(BIN_DIR)/Player.out
+TEST_TARGET = $(BIN_DIR)/test_runner
 
-Map.o: Map.cpp
-	$(CXX) $(CXXFLAGS) -c Map.cpp
+SRC       = $(wildcard $(SRC_DIR)/*.cpp)
+TEST_SRC  = $(wildcard $(TEST_DIR)/*.cpp)
 
-Direction.o: Direction.cpp
-	$(CXX) $(CXXFLAGS) -c Direction.cpp
+OBJ       = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
+TEST_OBJ  = $(patsubst $(TEST_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(TEST_SRC))
 
-Engine.o: Engine.cpp
-	$(CXX) $(CXXFLAGS) -c Engine.cpp
+TEST_FLAGS = -lgtest -lgtest_main -pthread
 
-Renderer.o: Renderer.cpp
-	$(CXX) $(CXXFLAGS) -c Renderer.cpp
+# ======================================================
+#                   RULEAȚI ASTA NORMAL
+# ======================================================
+.PHONY: all
+all: dirs $(TARGET)
+	@echo "======================================="
+	@echo "  ✓ Build complet!"
+	@echo "  Rulează jocul cu: make run"
+	@echo "======================================="
 
-Position.o: Position.cpp
-	$(CXX) $(CXXFLAGS) -c Position.cpp
+# ======================================================
+#              DIRECTOARE AUTOCREATE
+# ======================================================
+dirs:
+	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(BIN_DIR)
 
-Player.o: Player.cpp
-	$(CXX) $(CXXFLAGS) -c Player.cpp
+# ======================================================
+#             LINK EXECUTABIL PRINCIPAL
+# ======================================================
+$(TARGET): $(OBJ)
+	@echo "[LINK]  $@"
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
-main.o: main.cpp
-	$(CXX) $(CXXFLAGS) -c main.cpp
+# ======================================================
+#                 LINK EXECUTABIL TESTE
+# ======================================================
+$(TEST_TARGET): $(OBJ) $(TEST_OBJ)
+	@echo "[LINK]  (tests) $@"
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(TEST_FLAGS)
 
+# ======================================================
+#                   COMPILARE .cpp → .o
+# ======================================================
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@echo "[CC]    $<"
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(TEST_DIR)/%.cpp
+	@echo "[CC]    (test) $<"
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# ======================================================
+#                     COMENZI UTILE
+# ======================================================
+.PHONY: run
+run: $(TARGET)
+	@echo "[RUN]  $(TARGET)"
+	./$(TARGET)
+
+.PHONY: tests
+tests: $(TEST_TARGET)
+	@echo "[RUN TESTS]"
+	./$(TEST_TARGET)
+
+# ======================================================
+#                      CLEAN
+# ======================================================
+.PHONY: clean
 clean:
-	rm -f *.o Snake.out
+	@echo "[CLEAN]"
+	rm -rf $(OBJ_DIR)/*.o
 
-.PHONY: all clean
+.PHONY: clean_all
+clean_all:
+	@echo "[CLEAN ALL]"
+	rm -rf $(OBJ_DIR) $(BIN_DIR)
+

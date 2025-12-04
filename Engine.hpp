@@ -9,11 +9,11 @@ class Engine {
     Map map;
     Player player;
     Apple apple;
-    bool gameOver;  // Add this
+    bool gameOver;
 public:
     Engine();
     void Init();
     void Run();
     bool IsFinished();
-    bool CheckCollision();  // Add this
+    bool CheckCollision();
 };

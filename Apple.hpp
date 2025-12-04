@@ -1,3 +1,14 @@
+/**
+ * @brief Teste unitare pentru clasa Apple
+ *
+ * @project Snake Game
+ * @author Igor Dodan
+ * @date 2025
+ *
+ * Acest fișier conține teste unitare pentru verificarea funcționalității
+ * clasei Apple utilizând Google Test Framework.
+ */
+
 #pragma once
 
 // #include <cstdlib>
