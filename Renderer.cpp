@@ -1,17 +1,58 @@
 #include "Renderer.hpp"
-#include <iostream>
+#include <raylib.h>
 
-void Renderer::ClearScreen() {
-    std::cout << "\033[2J\033[H" << std::flush;
+Renderer::Renderer(int width, int height, int cellSize)
+    : windowWidth(width), windowHeight(height), cellSize(cellSize) {
+    InitWindow(windowWidth, windowHeight, "Snake Game");
+    SetTargetFPS(60);
+    font = GetFontDefault();
 }
 
-void Renderer::DrawImage(Position topLeft, Position bottomRight, const Image& image) {
-    for (size_t i = 0; i < image.size(); ++i) {
-        std::cout << image[i] << '\n';
+Renderer::~Renderer() {
+    CloseWindow();
+}
+
+void Renderer::ClearScreen() {
+    // Raylib handles this in BeginDrawing/EndDrawing
+}
+
+void Renderer::BeginDrawing() {
+    ::BeginDrawing();
+    ClearBackground(BLACK);
+}
+
+void Renderer::EndDrawing() {
+    ::EndDrawing();
+}
+
+bool Renderer::ShouldClose() const {
+    return WindowShouldClose();
+}
+
+void Renderer::DrawImage(Position topLeft, Position bottomRight, const GameImage& image) {  // Changed here
+    for (size_t y = 0; y < image.size(); ++y) {
+        for (size_t x = 0; x < image[y].size(); ++x) {
+            if (image[y][x] != '.') {
+                Color color = WHITE;
+
+                if (image[y][x] == 'O') {
+                    color = GREEN; // Snake body
+                } else if (image[y][x] == '@') {
+                    color = RED;   // Apple
+                }
+
+                DrawRectangle(
+                    topLeft.x + x * cellSize,
+                    topLeft.y + y * cellSize,
+                    cellSize - 2,
+                    cellSize - 2,
+                    color
+                );
+            }
+        }
     }
-    std::cout << std::flush;
 }
 
 void Renderer::WriteText(Position position, const std::string& text) {
-    std::cout << "\033[" << position.y << ";" << position.x << "H" << text << std::flush;
+    DrawText(text.c_str(), position.x, position.y, 20, WHITE);
 }
