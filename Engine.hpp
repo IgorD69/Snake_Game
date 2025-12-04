@@ -3,6 +3,7 @@
 #include "Map.hpp"
 #include "Apple.hpp"
 #include "Player.hpp"
+#include "Direction.hpp"
 
 class Engine {
     Map map;

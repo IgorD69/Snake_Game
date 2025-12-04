@@ -1,10 +1,11 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall
+RAYLIB_FLAGS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 all: Snake.out
 
-Snake.out: Apple.o Map.o Direction.o Engine.o CmdListener.o Renderer.o Position.o Player.o main.o
-	$(CXX) -o Snake.out Apple.o Map.o Direction.o Engine.o CmdListener.o Renderer.o Position.o Player.o main.o
+Snake.out: Apple.o Map.o Direction.o Engine.o Renderer.o Position.o Player.o main.o
+	$(CXX) -o Snake.out Apple.o Map.o Direction.o Engine.o Renderer.o Position.o Player.o main.o $(RAYLIB_FLAGS)
 
 Apple.o: Apple.cpp
 	$(CXX) $(CXXFLAGS) -c Apple.cpp
@@ -17,9 +18,6 @@ Direction.o: Direction.cpp
 
 Engine.o: Engine.cpp
 	$(CXX) $(CXXFLAGS) -c Engine.cpp
-
-CmdListener.o: CmdListener.cpp
-	$(CXX) $(CXXFLAGS) -c CmdListener.cpp
 
 Renderer.o: Renderer.cpp
 	$(CXX) $(CXXFLAGS) -c Renderer.cpp
