@@ -1,34 +1,39 @@
-all: SnakeGame
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall
 
-SnakeGame: Apple.o Map.o Direction.o Engine.o CmdListener.o Renderer.o Position.o Player.o main.o
-	g++ -o Snake.out Apple.o Map.o Direction.o Engine.o CmdListener.o Renderer.o Position.o Player.o main.o
+all: Snake.out
+
+Snake.out: Apple.o Map.o Direction.o Engine.o CmdListener.o Renderer.o Position.o Player.o main.o
+	$(CXX) -o Snake.out Apple.o Map.o Direction.o Engine.o CmdListener.o Renderer.o Position.o Player.o main.o
 
 Apple.o: Apple.cpp
-	g++ Apple.cpp -o Apple.o -c
+	$(CXX) $(CXXFLAGS) -c Apple.cpp
 
 Map.o: Map.cpp
-	g++ Map.cpp -o Map.o -c
+	$(CXX) $(CXXFLAGS) -c Map.cpp
 
 Direction.o: Direction.cpp
-	g++ Direction.cpp -o Direction.o -c
+	$(CXX) $(CXXFLAGS) -c Direction.cpp
 
 Engine.o: Engine.cpp
-	g++ Engine.cpp -o Engine.o -c
+	$(CXX) $(CXXFLAGS) -c Engine.cpp
 
-# CmdListener.o: CmdListener.cpp
-# 	g++ CmdListener.cpp -o CmdListener.o -c
+CmdListener.o: CmdListener.cpp
+	$(CXX) $(CXXFLAGS) -c CmdListener.cpp
 
-# Renderer.o: Renderer.cpp
-# 	g++ Renderer.cpp -o Renderer.o -c
+Renderer.o: Renderer.cpp
+	$(CXX) $(CXXFLAGS) -c Renderer.cpp
 
 Position.o: Position.cpp
-	g++ Position.cpp -o Position.o -c
+	$(CXX) $(CXXFLAGS) -c Position.cpp
 
 Player.o: Player.cpp
-	g++ Player.cpp -o Player.o -c
+	$(CXX) $(CXXFLAGS) -c Player.cpp
 
 main.o: main.cpp
-	g++ main.cpp -o main.o -c
+	$(CXX) $(CXXFLAGS) -c main.cpp
 
 clean:
-	rm -f *.o *.out
+	rm -f *.o Snake.out
+
+.PHONY: all clean
