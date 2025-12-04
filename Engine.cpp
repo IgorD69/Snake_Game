@@ -36,12 +36,12 @@ void Engine::Run() {
         player.Move(direction); // Example movement
         Image image (map.GetHeight(), std::string(map.GetWidth(), '.'));
         image[apple.GetPosition().y][apple.GetPosition().x] = '@';
-        
+
         for(int i = 0; i < player.GetSize(); ++i) {
             Position pos = player.GetSegments()[i];
             image[pos.y][pos.x] = 'O';
         }
-        
+
         renderer->DrawImage({0,0}, {10,10}, image);
         std::this_thread::sleep_for(std::chrono::milliseconds(400));
     }

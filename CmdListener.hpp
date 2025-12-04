@@ -1,8 +1,10 @@
-// #include "AbstractListener.hpp"
+#pragma once
+#include "AbstractListener.hpp"
 
-// class CmdListener : public AbstractListener {
-// public:
-//     ~CmdListener() override = default;
-//     char OnKeyPress() override;
-//     bool IsKeyPressed(int key) override;
-// };
+class CmdListener : public AbstractListener {
+public:
+    CmdListener();
+    ~CmdListener() override;
+    char OnKeyPress() override;
+    bool IsKeyPressed(int key) override;
+};
