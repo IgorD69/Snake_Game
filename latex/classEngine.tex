@@ -1,0 +1,190 @@
+\doxysection{Engine Class Reference}
+\hypertarget{classEngine}{}\label{classEngine}\index{Engine@{Engine}}
+
+
+Clasă principală pentru gestionarea jocului Snake.  
+
+
+
+
+{\ttfamily \#include $<$Engine.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEngine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}{Engine}} ()
+\begin{DoxyCompactList}\small\item\em Constructor implicit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEngine_aa425192c63c4e258588db980ddf18d0d}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Inițializează sau resetează jocul. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEngine_af4c789fb939a0870426c698a5124a0ee}{Run}} ()
+\begin{DoxyCompactList}\small\item\em Pornește loop-\/ul principal al jocului. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEngine_a4ec1506039d9e6e62ad50b7c0d92df12}{Is\+Finished}} ()
+\begin{DoxyCompactList}\small\item\em Verifică dacă jocul s-\/a terminat. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEngine_ae7e6bc5a7518d9def54ed7ada646d66f}{Check\+Collision}} ()
+\begin{DoxyCompactList}\small\item\em Verifică coliziunile șarpelui. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clasă principală pentru gestionarea jocului Snake. 
+
+\doxylink{classEngine}{Engine} este nucleul jocului care coordonează toate componentele\+:
+\begin{DoxyItemize}
+\item Inițializarea hărții, șarpelui și mărului
+\item Loop-\/ul principal de joc cu input, update, și render
+\item Detectarea coliziunilor cu pereții și cu propriul corp
+\item Gestionarea stării de game over și restart
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Folosește biblioteca Raylib pentru randare și input 
+\end{DoxyNote}
+
+
+\label{doc-constructors}
+\Hypertarget{classEngine_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classEngine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}\index{Engine@{Engine}!Engine@{Engine}}
+\index{Engine@{Engine}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Engine()}{Engine()}}
+{\footnotesize\ttfamily \label{classEngine_a8c98683b0a3aa28d8ab72a8bcd0d52f2} 
+Engine\+::\+Engine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructor implicit. 
+
+Creează engine-\/ul cu starea inițială. Trebuie apelat \doxylink{classEngine_aa425192c63c4e258588db980ddf18d0d}{Init()} înainte de \doxylink{classEngine_af4c789fb939a0870426c698a5124a0ee}{Run()}. 
+
+\label{doc-func-members}
+\Hypertarget{classEngine_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classEngine_ae7e6bc5a7518d9def54ed7ada646d66f}\index{Engine@{Engine}!CheckCollision@{CheckCollision}}
+\index{CheckCollision@{CheckCollision}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{CheckCollision()}{CheckCollision()}}
+{\footnotesize\ttfamily \label{classEngine_ae7e6bc5a7518d9def54ed7ada646d66f} 
+bool Engine\+::\+Check\+Collision (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verifică coliziunile șarpelui. 
+
+\begin{DoxyReturn}{Returns}
+true dacă șarpele s-\/a lovit, false altfel
+\end{DoxyReturn}
+Detectează două tipuri de coliziuni\+:
+\begin{DoxyEnumerate}
+\item Coliziune cu pereții -\/ capul șarpelui depășește limitele hărții
+\item Coliziune cu propriul corp -\/ capul atinge un alt segment al șarpelui
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (engine.CheckCollision())\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Game\ Over\ -\/\ șarpele\ s-\/a\ lovit}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Verifică doar capul șarpelui (primul segment) 
+\end{DoxyNote}
+\Hypertarget{classEngine_aa425192c63c4e258588db980ddf18d0d}\index{Engine@{Engine}!Init@{Init}}
+\index{Init@{Init}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{classEngine_aa425192c63c4e258588db980ddf18d0d} 
+void Engine\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Inițializează sau resetează jocul. 
+
+Configurează toate componentele jocului\+:
+\begin{DoxyItemize}
+\item Creează o hartă 40x20
+\item Plasează șarpele în centrul hărții
+\item Plasează mărul la poziția inițială (5,5)
+\item Resetează starea game\+Over la false
+\item Inițializează generatorul de numere aleatoare
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classEngine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}{Engine}}\ engine;}
+\DoxyCodeLine{engine.\mbox{\hyperlink{classEngine_aa425192c63c4e258588db980ddf18d0d}{Init}}();\ \ \textcolor{comment}{//\ Pregătește\ jocul}}
+\DoxyCodeLine{engine.\mbox{\hyperlink{classEngine_af4c789fb939a0870426c698a5124a0ee}{Run}}();\ \ \ \textcolor{comment}{//\ Pornește\ loop-\/ul\ de\ joc}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Poate fi apelat multiple ori pentru restart 
+\end{DoxyNote}
+\Hypertarget{classEngine_a4ec1506039d9e6e62ad50b7c0d92df12}\index{Engine@{Engine}!IsFinished@{IsFinished}}
+\index{IsFinished@{IsFinished}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{IsFinished()}{IsFinished()}}
+{\footnotesize\ttfamily \label{classEngine_a4ec1506039d9e6e62ad50b7c0d92df12} 
+bool Engine\+::\+Is\+Finished (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verifică dacă jocul s-\/a terminat. 
+
+\begin{DoxyReturn}{Returns}
+true dacă jocul este în starea game over, false altfel
+\end{DoxyReturn}
+Interogare pentru verificarea stării jocului.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classEngine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}{Engine}}\ engine;}
+\DoxyCodeLine{engine.\mbox{\hyperlink{classEngine_aa425192c63c4e258588db980ddf18d0d}{Init}}();}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (engine.\mbox{\hyperlink{classEngine_a4ec1506039d9e6e62ad50b7c0d92df12}{IsFinished}}())\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Game\ Over!\(\backslash\)n"{}};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \Hypertarget{classEngine_af4c789fb939a0870426c698a5124a0ee}\index{Engine@{Engine}!Run@{Run}}
+\index{Run@{Run}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily \label{classEngine_af4c789fb939a0870426c698a5124a0ee} 
+void Engine\+::\+Run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Pornește loop-\/ul principal al jocului. 
+
+Rulează jocul în buclă până când\+:
+\begin{DoxyItemize}
+\item Jucătorul apasă Q sau ESC (închide jocul)
+\item Fereastra este închisă
+\end{DoxyItemize}
+
+Loop-\/ul gestionează\+:
+\begin{DoxyItemize}
+\item Input-\/ul de la tastatură (WASD/săgeți pentru mișcare, R pentru restart)
+\item Update-\/ul logicii (mișcare șarpe, coliziuni, mâncat mere)
+\item Randarea grafică (hartă, șarpe, măr, scor, mesaje)
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classEngine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}{Engine}}\ engine;}
+\DoxyCodeLine{engine.\mbox{\hyperlink{classEngine_aa425192c63c4e258588db980ddf18d0d}{Init}}();}
+\DoxyCodeLine{engine.\mbox{\hyperlink{classEngine_af4c789fb939a0870426c698a5124a0ee}{Run}}();\ \ \textcolor{comment}{//\ Intră\ în\ loop-\/ul\ de\ joc}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Folosește timing pentru a controla viteza șarpelui (0.\+15s între mișcări) 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Trebuie apelat \doxylink{classEngine_aa425192c63c4e258588db980ddf18d0d}{Init()} înainte de \doxylink{classEngine_af4c789fb939a0870426c698a5124a0ee}{Run()} 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Engine_8hpp}{Engine.\+hpp}}\item 
+Engine.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,38 @@
+\doxysection{Renderer.\+hpp}
+\hypertarget{Renderer_8hpp_source}{}\label{Renderer_8hpp_source}\mbox{\hyperlink{Renderer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Abstract__Renderer_8hpp}{Abstract\_Renderer.hpp}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <raylib.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRenderer_a049caee3cc27b446b7d86b76642f70d0}{Renderer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structAbstractRenderer}{AbstractRenderer}}\ \{}
+\DoxyCodeLine{00038\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ windowWidth;\ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ windowHeight;\ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ cellSize;\ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ Font\ font;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classRenderer_a049caee3cc27b446b7d86b76642f70d0}{Renderer}}(\textcolor{keywordtype}{int}\ width\ =\ 800,\ \textcolor{keywordtype}{int}\ height\ =\ 600,\ \textcolor{keywordtype}{int}\ cellSize\ =\ 20);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{classRenderer_aedc9f2167214ee6717bac6313d1ea995}{\string~Renderer}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRenderer_ababc6342282bb96257ad89039639d563}{ClearScreen}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRenderer_a8384bd97a2ad6015bebdd66f29c66d83}{DrawImage}}(\mbox{\hyperlink{structPosition}{Position}}\ topLeft,\ \mbox{\hyperlink{structPosition}{Position}}\ bottomRight,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{GameImage}}\&\ image)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRenderer_a11a66b4c970f121093709cec5814e73f}{WriteText}}(\mbox{\hyperlink{structPosition}{Position}}\ position,\ \textcolor{keyword}{const}\ std::string\&\ text)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ Metode\ specifice\ Raylib}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classRenderer_a5107b6d6965ce41796717dc6394e33ba}{ShouldClose}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRenderer_a7d38c74da89fa7630a5dbdcedf4452e5}{BeginDrawing}}();}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRenderer_a84cdc4b0261d4ac1e353adf4e3c36833}{EndDrawing}}();}
+\DoxyCodeLine{00164\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,220 @@
+\doxysection{Player Class Reference}
+\hypertarget{classPlayer}{}\label{classPlayer}\index{Player@{Player}}
+
+
+Clasă pentru reprezentarea șarpelui în joc.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}} ()
+\begin{DoxyCompactList}\small\item\em Constructor implicit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer_a1d0d236f4f08fcb65b480ad155134e01}{Player}} (const \mbox{\hyperlink{structPosition}{Position}} \&\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Constructor cu poziție inițială \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_ad4abd710fe79c9d0aae4a3f139a4fd10}{Move}} (\mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}} direction)
+\begin{DoxyCompactList}\small\item\em Mișcă șarpele într-\/o direcție. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlayer_a127415a94515e9dd529360973bb20b52}{Get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Obține numărul de segmente ale șarpelui. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPosition}{Position}} \mbox{\hyperlink{classPlayer_afa32cdfef860e1570b72a2e2f44ca060}{Get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Obține poziția capului șarpelui. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structPosition}{Position}} $>$ \mbox{\hyperlink{classPlayer_a101c4f04364e8deab03730f14ece2364}{Get\+Segments}} () const
+\begin{DoxyCompactList}\small\item\em Obține toate segmentele șarpelui. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a799ff2a54d17d5cccfd9bc61b86abba0}{Eat}} (const \mbox{\hyperlink{classApple}{Apple}} \&apple)
+\begin{DoxyCompactList}\small\item\em Șarpele mănâncă un măr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clasă pentru reprezentarea șarpelui în joc. 
+
+\doxylink{classPlayer}{Player} gestionează toate aspectele legate de șarpe\+: poziția, mișcarea, creșterea atunci când mănâncă mere, și verificarea coliziunilor cu sine sau cu pereții.
+
+Șarpele este format dintr-\/o listă de segmente (\doxylink{structPosition}{Position}), unde primul segment este capul șarpelui.
+
+\begin{DoxyNote}{Note}
+Capul șarpelui este întotdeauna la indexul 0 în vectorul de segmente 
+\end{DoxyNote}
+
+
+\label{doc-constructors}
+\Hypertarget{classPlayer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8} 
+Player\+::\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructor implicit. 
+
+Creează un șarpe gol (fără segmente). Trebuie să adăugați manual segmente sau să folosiți constructorul cu poziție. \Hypertarget{classPlayer_a1d0d236f4f08fcb65b480ad155134e01}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classPlayer_a1d0d236f4f08fcb65b480ad155134e01} 
+Player\+::\+Player (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPosition}{Position}} \&}]{\+\_\+position}{}\end{DoxyParamCaption})}
+
+
+
+Constructor cu poziție inițială 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+position} & Poziția de start a șarpelui (capul)\\
+\hline
+\end{DoxyParams}
+Creează un șarpe cu un singur segment (capul) la poziția specificată.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Position\ start(20,\ 20);}
+\DoxyCodeLine{\mbox{\hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}\ snake(start);\ \ \textcolor{comment}{//\ Șarpe\ cu\ capul\ la\ (20,\ 20)}}
+
+\end{DoxyCode}
+ 
+
+\label{doc-func-members}
+\Hypertarget{classPlayer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPlayer_a799ff2a54d17d5cccfd9bc61b86abba0}\index{Player@{Player}!Eat@{Eat}}
+\index{Eat@{Eat}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Eat()}{Eat()}}
+{\footnotesize\ttfamily \label{classPlayer_a799ff2a54d17d5cccfd9bc61b86abba0} 
+void Player\+::\+Eat (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classApple}{Apple}} \&}]{apple}{}\end{DoxyParamCaption})}
+
+
+
+Șarpele mănâncă un măr. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em apple} & Mărul mâncat\\
+\hline
+\end{DoxyParams}
+Crește șarpele cu un segment. Noul segment va fi adăugat efectiv după următoarea mișcare.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}\ snake(Position(10,\ 10));}
+\DoxyCodeLine{Apple\ apple(Position(11,\ 10));}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (snake.GetPosition()\ ==\ apple.GetPosition())\ \{}
+\DoxyCodeLine{\ \ \ \ snake.Eat(apple);\ \ \textcolor{comment}{//\ Șarpele\ crește}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Segmentul se adaugă la coadă și devine vizibil după următoarea mișcare 
+\end{DoxyNote}
+\Hypertarget{classPlayer_afa32cdfef860e1570b72a2e2f44ca060}\index{Player@{Player}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily \label{classPlayer_afa32cdfef860e1570b72a2e2f44ca060} 
+\mbox{\hyperlink{structPosition}{Position}} Player\+::\+Get\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obține poziția capului șarpelui. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{structPosition}{Position} Poziția curentă a capului
+\end{DoxyReturn}
+Returnează poziția primului segment (capul) al șarpelui.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}\ snake(Position(10,\ 10));}
+\DoxyCodeLine{Position\ head\ =\ snake.GetPosition();}
+
+\end{DoxyCode}
+ \Hypertarget{classPlayer_a101c4f04364e8deab03730f14ece2364}\index{Player@{Player}!GetSegments@{GetSegments}}
+\index{GetSegments@{GetSegments}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{GetSegments()}{GetSegments()}}
+{\footnotesize\ttfamily \label{classPlayer_a101c4f04364e8deab03730f14ece2364} 
+std\+::vector$<$ \mbox{\hyperlink{structPosition}{Position}} $>$ Player\+::\+Get\+Segments (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obține toate segmentele șarpelui. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Position$>$ Vector cu toate pozițiile segmentelor
+\end{DoxyReturn}
+Returnează o copie a vectorului cu toate segmentele șarpelui, unde primul element este capul.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}\ snake(Position(10,\ 10));}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ segments\ =\ snake.GetSegments();}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ seg\ :\ segments)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Procesează\ fiecare\ segment}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Util pentru detectarea coliziunilor cu propriul corp 
+\end{DoxyNote}
+\Hypertarget{classPlayer_a127415a94515e9dd529360973bb20b52}\index{Player@{Player}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
+{\footnotesize\ttfamily \label{classPlayer_a127415a94515e9dd529360973bb20b52} 
+int Player\+::\+Get\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obține numărul de segmente ale șarpelui. 
+
+\begin{DoxyReturn}{Returns}
+int Numărul total de segmente (lungimea șarpelui)
+\end{DoxyReturn}
+Returnează lungimea curentă a șarpelui, care corespunde și cu scorul.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}\ snake(Position(10,\ 10));}
+\DoxyCodeLine{snake.Eat(apple);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ size\ =\ snake.GetSize();\ \ \textcolor{comment}{//\ size\ =\ 2}}
+
+\end{DoxyCode}
+ \Hypertarget{classPlayer_ad4abd710fe79c9d0aae4a3f139a4fd10}\index{Player@{Player}!Move@{Move}}
+\index{Move@{Move}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily \label{classPlayer_ad4abd710fe79c9d0aae4a3f139a4fd10} 
+void Player\+::\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}}}]{direction}{}\end{DoxyParamCaption})}
+
+
+
+Mișcă șarpele într-\/o direcție. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & Direcția în care se mișcă șarpele\\
+\hline
+\end{DoxyParams}
+Mută șarpele cu o unitate în direcția specificată. Capul se mișcă în direcția dată, iar restul segmentelor urmează capul. Ultimul segment dispare (dacă nu s-\/a mâncat un măr).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}\ snake(Position(10,\ 10));}
+\DoxyCodeLine{snake.Move(\mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601a21507b40c80068eda19865706fdc2403}{Direction::RIGHT}});\ \ \textcolor{comment}{//\ Mișcă\ la\ dreapta}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Dacă șarpele tocmai a mâncat un măr, ultimul segment nu dispare 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Player_8hpp}{Player.\+hpp}}\item 
+Player.\+cpp\end{DoxyCompactItemize}

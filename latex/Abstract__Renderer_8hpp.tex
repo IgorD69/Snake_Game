@@ -1,0 +1,63 @@
+\doxysection{Abstract\+\_\+\+Renderer.\+hpp File Reference}
+\hypertarget{Abstract__Renderer_8hpp}{}\label{Abstract__Renderer_8hpp}\index{Abstract\_Renderer.hpp@{Abstract\_Renderer.hpp}}
+
+
+Definirea interfeței \doxylink{structAbstractRenderer}{Abstract\+Renderer} pentru sistemul de randare.  
+
+
+{\ttfamily \#include "{}Position.\+hpp"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structAbstractRenderer}{Abstract\+Renderer}}
+\begin{DoxyCompactList}\small\item\em Interfață abstractă pentru sistemele de randare. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{Game\+Image}} = std\+::vector$<$std\+::string$>$
+\begin{DoxyCompactList}\small\item\em Tip alias pentru reprezentarea unei imagini de joc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definirea interfeței \doxylink{structAbstractRenderer}{Abstract\+Renderer} pentru sistemul de randare. 
+
+@project Snake Game \begin{DoxyAuthor}{Author}
+Dodan Igor 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025
+\end{DoxyDate}
+Acest fișier conține definirea interfeței \doxylink{structAbstractRenderer}{Abstract\+Renderer} care oferă o abstracție pentru sistemele de randare grafică. Permite implementări diferite (terminal, Raylib, SDL, etc.). 
+
+\label{doc-typedef-members}
+\Hypertarget{Abstract__Renderer_8hpp_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}\index{Abstract\_Renderer.hpp@{Abstract\_Renderer.hpp}!GameImage@{GameImage}}
+\index{GameImage@{GameImage}!Abstract\_Renderer.hpp@{Abstract\_Renderer.hpp}}
+\doxysubsubsection{\texorpdfstring{GameImage}{GameImage}}
+{\footnotesize\ttfamily \label{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547} 
+using \mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{Game\+Image}} = std\+::vector$<$std\+::string$>$}
+
+
+
+Tip alias pentru reprezentarea unei imagini de joc. 
+
+\doxylink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{Game\+Image} este un vector de șiruri de caractere, unde fiecare șir reprezintă o linie din imagine. Fiecare caracter din șir reprezintă un pixel/celulă din joc.
+
+Exemple de caractere\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}.\textquotesingle{} = spațiu gol
+\item \textquotesingle{}\#\textquotesingle{} = perete/margine
+\item \textquotesingle{}O\textquotesingle{} = segment șarpe
+\item \textquotesingle{}@\textquotesingle{} = măr
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{GameImage}}\ image(20,\ std::string(40,\ \textcolor{charliteral}{'.'}));\ \ \textcolor{comment}{//\ Imagine\ 40x20\ goală}}
+\DoxyCodeLine{image[10][20]\ =\ \textcolor{charliteral}{'@'};\ \ \textcolor{comment}{//\ Plasează\ măr\ la\ poziția\ (20,\ 10)}}
+
+\end{DoxyCode}
+ 

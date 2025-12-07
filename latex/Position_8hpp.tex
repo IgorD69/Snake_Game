@@ -1,0 +1,77 @@
+\doxysection{Position.\+hpp File Reference}
+\hypertarget{Position_8hpp}{}\label{Position_8hpp}\index{Position.hpp@{Position.hpp}}
+
+
+Definirea structurii \doxylink{structPosition}{Position} pentru gestionarea coordonatelor în joc.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPosition}{Position}}
+\begin{DoxyCompactList}\small\item\em Structură pentru reprezentarea unei poziții 2D în spațiul jocului. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \mbox{\hyperlink{Position_8hpp_aacc547f87dbbe59e061b864e3f19d528}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{structPosition}{Position}} \&point)
+\begin{DoxyCompactList}\small\item\em Operator de intrare pentru citirea unei poziții. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{Position_8hpp_a96da17b7e0bec406f4e106d40278cdc2}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{structPosition}{Position}} \&point)
+\begin{DoxyCompactList}\small\item\em Operator de ieșire pentru afișarea unei poziții. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definirea structurii \doxylink{structPosition}{Position} pentru gestionarea coordonatelor în joc. 
+
+@project Snake Game \begin{DoxyAuthor}{Author}
+Dodan Igor 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025
+\end{DoxyDate}
+Acest fișier conține definirea structurii \doxylink{structPosition}{Position} care reprezintă coordonatele 2D ale obiectelor din joc (șarpe, măr, etc.). 
+
+\label{doc-func-members}
+\Hypertarget{Position_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{Position_8hpp_a96da17b7e0bec406f4e106d40278cdc2}\index{Position.hpp@{Position.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Position.hpp@{Position.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \label{Position_8hpp_a96da17b7e0bec406f4e106d40278cdc2} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{const \mbox{\hyperlink{structPosition}{Position}} \&}]{point}{}\end{DoxyParamCaption})}
+
+
+
+Operator de ieșire pentru afișarea unei poziții. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Stream-\/ul de ieșire \\
+\hline
+{\em point} & Poziția de afișat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referință la stream-\/ul de ieșire
+\end{DoxyReturn}
+Scrie coordonatele poziției în format "{}x y"{}. \Hypertarget{Position_8hpp_aacc547f87dbbe59e061b864e3f19d528}\index{Position.hpp@{Position.hpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Position.hpp@{Position.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily \label{Position_8hpp_aacc547f87dbbe59e061b864e3f19d528} 
+std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in}{, }\item[{\mbox{\hyperlink{structPosition}{Position}} \&}]{point}{}\end{DoxyParamCaption})}
+
+
+
+Operator de intrare pentru citirea unei poziții. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Stream-\/ul de intrare \\
+\hline
+{\em point} & Poziția în care se va citi \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referință la stream-\/ul de intrare
+\end{DoxyReturn}
+Citește două valori întregi (x și y) din stream și le atribuie poziției. Format așteptat\+: "{}x y"{} 

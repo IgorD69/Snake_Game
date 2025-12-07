@@ -1,0 +1,287 @@
+\doxysection{Renderer Class Reference}
+\hypertarget{classRenderer}{}\label{classRenderer}\index{Renderer@{Renderer}}
+
+
+Implementare a randării grafice folosind Raylib.  
+
+
+
+
+{\ttfamily \#include $<$Renderer.\+hpp$>$}
+
+Inheritance diagram for Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classRenderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRenderer_a049caee3cc27b446b7d86b76642f70d0}{Renderer}} (int width=800, int height=600, int cell\+Size=20)
+\begin{DoxyCompactList}\small\item\em Constructor cu parametri opționali. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRenderer_aedc9f2167214ee6717bac6313d1ea995}{\texorpdfstring{$\sim$}{\string~}\+Renderer}} () override
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRenderer_ababc6342282bb96257ad89039639d563}{Clear\+Screen}} () override
+\begin{DoxyCompactList}\small\item\em Șterge ecranul. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRenderer_a8384bd97a2ad6015bebdd66f29c66d83}{Draw\+Image}} (\mbox{\hyperlink{structPosition}{Position}} top\+Left, \mbox{\hyperlink{structPosition}{Position}} bottom\+Right, const \mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{Game\+Image}} \&image) override
+\begin{DoxyCompactList}\small\item\em Desenează imaginea jocului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRenderer_a11a66b4c970f121093709cec5814e73f}{Write\+Text}} (\mbox{\hyperlink{structPosition}{Position}} position, const std\+::string \&text) override
+\begin{DoxyCompactList}\small\item\em Scrie text pe ecran. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRenderer_a5107b6d6965ce41796717dc6394e33ba}{Should\+Close}} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă fereastra trebuie închisă \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRenderer_a7d38c74da89fa7630a5dbdcedf4452e5}{Begin\+Drawing}} ()
+\begin{DoxyCompactList}\small\item\em Începe un nou frame de desenare. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRenderer_a84cdc4b0261d4ac1e353adf4e3c36833}{End\+Drawing}} ()
+\begin{DoxyCompactList}\small\item\em Finalizează frame-\/ul de desenare. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{structAbstractRenderer}{Abstract\+Renderer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{structAbstractRenderer_ab0a47aea5951b77e6861edcb6997388c}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+Renderer}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementare a randării grafice folosind Raylib. 
+
+\doxylink{classRenderer}{Renderer} gestionează afișarea grafică a jocului într-\/o fereastră dedicată folosind biblioteca Raylib. Oferă\+:
+\begin{DoxyItemize}
+\item Fereastră grafică redimensionabilă
+\item Randare pe bază de grilă (grid-\/based)
+\item Culori diferite pentru elemente (verde=șarpe, roșu=măr)
+\item Text pentru scor și mesaje
+\item Control al frame rate-\/ului
+\end{DoxyItemize}
+
+Sistemul de coordonate\+:
+\begin{DoxyItemize}
+\item Fiecare celulă din joc ocupă cell\+Size x cell\+Size pixeli
+\item Coordonatele (0,0) sunt în colțul stânga-\/sus
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Necesită biblioteca Raylib instalată și linkată 
+\end{DoxyNote}
+
+
+\label{doc-constructors}
+\Hypertarget{classRenderer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRenderer_a049caee3cc27b446b7d86b76642f70d0}\index{Renderer@{Renderer}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}}
+{\footnotesize\ttfamily \label{classRenderer_a049caee3cc27b446b7d86b76642f70d0} 
+Renderer\+::\+Renderer (\begin{DoxyParamCaption}\item[{int}]{width}{ = {\ttfamily 800}, }\item[{int}]{height}{ = {\ttfamily 600}, }\item[{int}]{cell\+Size}{ = {\ttfamily 20}}\end{DoxyParamCaption})}
+
+
+
+Constructor cu parametri opționali. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Lățimea ferestrei în pixeli (implicit 800) \\
+\hline
+{\em height} & Înălțimea ferestrei în pixeli (implicit 600) \\
+\hline
+{\em cell\+Size} & Dimensiunea unei celule în pixeli (implicit 20)\\
+\hline
+\end{DoxyParams}
+Inițializează fereastra Raylib și configurează sistemul de randare\+:
+\begin{DoxyItemize}
+\item Creează fereastra cu dimensiunile specificate
+\item Setează FPS-\/ul țintă la 60
+\item Încarcă font-\/ul implicit
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classRenderer_a049caee3cc27b446b7d86b76642f70d0}{Renderer}}\ renderer(1024,\ 768,\ 25);\ \ \textcolor{comment}{//\ Fereastră\ 1024x768,\ celule\ de\ 25px}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Fereastra este creată cu titlul "{}\+Snake Game"{} 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Trebuie apelat Close\+Window() sau distrugătorul pentru cleanup 
+\end{DoxyWarning}
+\Hypertarget{classRenderer_aedc9f2167214ee6717bac6313d1ea995}\index{Renderer@{Renderer}!````~Renderer@{\texorpdfstring{$\sim$}{\string~}Renderer}}
+\index{````~Renderer@{\texorpdfstring{$\sim$}{\string~}Renderer}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Renderer()}{\string~Renderer()}}
+{\footnotesize\ttfamily \label{classRenderer_aedc9f2167214ee6717bac6313d1ea995} 
+Renderer\+::\texorpdfstring{$\sim$}{\string~}\+Renderer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructor. 
+
+Închide fereastra Raylib și eliberează resursele alocate.
+
+\begin{DoxyNote}{Note}
+Apelat automat la distrugerea obiectului 
+\end{DoxyNote}
+
+
+\label{doc-func-members}
+\Hypertarget{classRenderer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRenderer_a7d38c74da89fa7630a5dbdcedf4452e5}\index{Renderer@{Renderer}!BeginDrawing@{BeginDrawing}}
+\index{BeginDrawing@{BeginDrawing}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{BeginDrawing()}{BeginDrawing()}}
+{\footnotesize\ttfamily \label{classRenderer_a7d38c74da89fa7630a5dbdcedf4452e5} 
+void Renderer\+::\+Begin\+Drawing (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Începe un nou frame de desenare. 
+
+Trebuie apelat înaintea oricăror operații de desenare. Șterge ecranul cu culoarea neagră și pregătește buffer-\/ul de randare.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{renderer.BeginDrawing();}
+\DoxyCodeLine{renderer.DrawImage(...);\ \ \textcolor{comment}{//\ Desenează\ jocul}}
+\DoxyCodeLine{renderer.WriteText(...);\ \ \textcolor{comment}{//\ Scrie\ text}}
+\DoxyCodeLine{renderer.EndDrawing();}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Trebuie urmat întotdeauna de \doxylink{classRenderer_a84cdc4b0261d4ac1e353adf4e3c36833}{End\+Drawing()} 
+\end{DoxyNote}
+\Hypertarget{classRenderer_ababc6342282bb96257ad89039639d563}\index{Renderer@{Renderer}!ClearScreen@{ClearScreen}}
+\index{ClearScreen@{ClearScreen}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{ClearScreen()}{ClearScreen()}}
+{\footnotesize\ttfamily \label{classRenderer_ababc6342282bb96257ad89039639d563} 
+void Renderer\+::\+Clear\+Screen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Șterge ecranul. 
+
+În Raylib, această metodă este goală deoarece ștergerea este gestionată automat de \doxylink{classRenderer_a7d38c74da89fa7630a5dbdcedf4452e5}{Begin\+Drawing()}/\+End\+Drawing().
+
+\begin{DoxyNote}{Note}
+Funcția este prezentă pentru compatibilitate cu interfața 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{structAbstractRenderer_ada233680fb38c1537656065bdc573088}{Abstract\+Renderer}}.
+
+\Hypertarget{classRenderer_a8384bd97a2ad6015bebdd66f29c66d83}\index{Renderer@{Renderer}!DrawImage@{DrawImage}}
+\index{DrawImage@{DrawImage}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{DrawImage()}{DrawImage()}}
+{\footnotesize\ttfamily \label{classRenderer_a8384bd97a2ad6015bebdd66f29c66d83} 
+void Renderer\+::\+Draw\+Image (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{top\+Left}{, }\item[{\mbox{\hyperlink{structPosition}{Position}}}]{bottom\+Right}{, }\item[{const \mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{Game\+Image}} \&}]{image}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Desenează imaginea jocului. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em top\+Left} & Poziția de start pentru desenare (offset în pixeli) \\
+\hline
+{\em bottom\+Right} & Nefolosit (păstrat pentru compatibilitate) \\
+\hline
+{\em image} & Matricea de caractere reprezentând jocul\\
+\hline
+\end{DoxyParams}
+Parcurge imaginea și desenează fiecare celulă ca un dreptunghi colorat\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}O\textquotesingle{} → Verde (șarpe)
+\item \textquotesingle{}@\textquotesingle{} → Roșu (măr)
+\item \textquotesingle{}.\textquotesingle{} → Nu se desenează (transparent)
+\item \textquotesingle{}\#\textquotesingle{} → Alb (pereți)
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{GameImage}}\ img(20,\ std::string(40,\ \textcolor{charliteral}{'.'}));}
+\DoxyCodeLine{img[10][20]\ =\ \textcolor{charliteral}{'@'};}
+\DoxyCodeLine{renderer.DrawImage(Position(10,\ 10),\ Position(0,\ 0),\ img);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Fiecare celulă este desenată cu 2px padding (cell\+Size -\/ 2) 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{structAbstractRenderer_a599ef6d387695feb5c528ace47866e56}{Abstract\+Renderer}}.
+
+\Hypertarget{classRenderer_a84cdc4b0261d4ac1e353adf4e3c36833}\index{Renderer@{Renderer}!EndDrawing@{EndDrawing}}
+\index{EndDrawing@{EndDrawing}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{EndDrawing()}{EndDrawing()}}
+{\footnotesize\ttfamily \label{classRenderer_a84cdc4b0261d4ac1e353adf4e3c36833} 
+void Renderer\+::\+End\+Drawing (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Finalizează frame-\/ul de desenare. 
+
+Trebuie apelat după toate operațiile de desenare. Afișează buffer-\/ul pe ecran și sincronizează cu FPS-\/ul țintă.
+
+\begin{DoxyNote}{Note}
+Trebuie precedat de \doxylink{classRenderer_a7d38c74da89fa7630a5dbdcedf4452e5}{Begin\+Drawing()} 
+\end{DoxyNote}
+\Hypertarget{classRenderer_a5107b6d6965ce41796717dc6394e33ba}\index{Renderer@{Renderer}!ShouldClose@{ShouldClose}}
+\index{ShouldClose@{ShouldClose}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{ShouldClose()}{ShouldClose()}}
+{\footnotesize\ttfamily \label{classRenderer_a5107b6d6965ce41796717dc6394e33ba} 
+bool Renderer\+::\+Should\+Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Verifică dacă fereastra trebuie închisă 
+
+\begin{DoxyReturn}{Returns}
+true dacă utilizatorul a cerut închiderea ferestrei, false altfel
+\end{DoxyReturn}
+Wrapper peste Window\+Should\+Close() din Raylib. Folosit în loop-\/ul principal pentru a determina când să oprească jocul.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (!renderer.ShouldClose())\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Loop-\/ul\ de\ joc}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \Hypertarget{classRenderer_a11a66b4c970f121093709cec5814e73f}\index{Renderer@{Renderer}!WriteText@{WriteText}}
+\index{WriteText@{WriteText}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{WriteText()}{WriteText()}}
+{\footnotesize\ttfamily \label{classRenderer_a11a66b4c970f121093709cec5814e73f} 
+void Renderer\+::\+Write\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{position}{, }\item[{const std\+::string \&}]{text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Scrie text pe ecran. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Poziția textului (în pixeli) \\
+\hline
+{\em text} & Textul de afișat\\
+\hline
+\end{DoxyParams}
+Afișează textul la poziția specificată folosind font-\/ul implicit cu dimensiunea 20 și culoarea albă.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{renderer.WriteText(Position(10,\ 550),\ \textcolor{stringliteral}{"{}Score:\ 15"{}});}
+\DoxyCodeLine{renderer.WriteText(Position(300,\ 300),\ \textcolor{stringliteral}{"{}GAME\ OVER!"{}});}
+
+\end{DoxyCode}
+ 
+
+Implements \mbox{\hyperlink{structAbstractRenderer_a291d4db6eccc2b4ed61baea3c55b9af7}{Abstract\+Renderer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Renderer_8hpp}{Renderer.\+hpp}}\item 
+Renderer.\+cpp\end{DoxyCompactItemize}

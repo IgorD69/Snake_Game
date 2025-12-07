@@ -1,0 +1,137 @@
+\doxysection{Abstract\+Listener Struct Reference}
+\hypertarget{structAbstractListener}{}\label{structAbstractListener}\index{AbstractListener@{AbstractListener}}
+
+
+Interfață abstractă pentru sistemele de input.  
+
+
+
+
+{\ttfamily \#include $<$Abstract\+Listener.\+hpp$>$}
+
+Inheritance diagram for Abstract\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structAbstractListener}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{structAbstractListener_aa3b6cbb351e4a6b10d8d2845be105cd2}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+Listener}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual. \end{DoxyCompactList}\item 
+virtual char \mbox{\hyperlink{structAbstractListener_a85ce5d763a6fe81f224da9e33e123bff}{On\+Key\+Press}} ()=0
+\begin{DoxyCompactList}\small\item\em Așteaptă și returnează următoarea tastă apăsată \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{structAbstractListener_a96a03168c1170193e070f43bd4c9f576}{Is\+Key\+Pressed}} (int key)=0
+\begin{DoxyCompactList}\small\item\em Verifică dacă o tastă specifică este apăsată \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfață abstractă pentru sistemele de input. 
+
+\doxylink{structAbstractListener}{Abstract\+Listener} definește contractul pentru toate clasele care gestionează input-\/ul de la utilizator. Folosește pattern-\/ul Strategy pentru a permite schimbarea sistemului de input la runtime.
+
+Implementările concrete pot include\+:
+\begin{DoxyItemize}
+\item \doxylink{classCmdListener}{Cmd\+Listener} pentru input în terminal (folosind termios)
+\item Window\+Listener pentru input în ferestre grafice
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Toate metodele sunt pure virtual și trebuie implementate de clasele derivate 
+\end{DoxyNote}
+
+
+\label{doc-constructors}
+\Hypertarget{structAbstractListener_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structAbstractListener_aa3b6cbb351e4a6b10d8d2845be105cd2}\index{AbstractListener@{AbstractListener}!````~AbstractListener@{\texorpdfstring{$\sim$}{\string~}AbstractListener}}
+\index{````~AbstractListener@{\texorpdfstring{$\sim$}{\string~}AbstractListener}!AbstractListener@{AbstractListener}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}AbstractListener()}{\string~AbstractListener()}}
+{\footnotesize\ttfamily \label{structAbstractListener_aa3b6cbb351e4a6b10d8d2845be105cd2} 
+virtual Abstract\+Listener\+::\texorpdfstring{$\sim$}{\string~}\+Abstract\+Listener (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destructor virtual. 
+
+Asigură că destructorii claselor derivate sunt apelați corect când obiectele sunt șterse prin pointeri la clasa de bază. 
+
+\label{doc-func-members}
+\Hypertarget{structAbstractListener_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structAbstractListener_a96a03168c1170193e070f43bd4c9f576}\index{AbstractListener@{AbstractListener}!IsKeyPressed@{IsKeyPressed}}
+\index{IsKeyPressed@{IsKeyPressed}!AbstractListener@{AbstractListener}}
+\doxysubsubsection{\texorpdfstring{IsKeyPressed()}{IsKeyPressed()}}
+{\footnotesize\ttfamily \label{structAbstractListener_a96a03168c1170193e070f43bd4c9f576} 
+virtual bool Abstract\+Listener\+::\+Is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică dacă o tastă specifică este apăsată 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Codul tastei de verificat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true dacă tasta este apăsată, false altfel
+\end{DoxyReturn}
+Metodă non-\/blocantă care verifică instant starea unei taste. Util pentru verificări rapide în loop-\/ul de joc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{AbstractListener*\ listener\ =\ \textcolor{keyword}{new}\ CmdListener();}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (listener-\/>\mbox{\hyperlink{structAbstractListener_a96a03168c1170193e070f43bd4c9f576}{IsKeyPressed}}(\textcolor{charliteral}{'w'}))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Tasta\ W\ este\ apăsată\ chiar\ acum}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Parametrul key poate fi cod ASCII sau cod specific platformei 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{classCmdListener_a744fb8f869ef29092582d1bb8d0f110f}{Cmd\+Listener}}.
+
+\Hypertarget{structAbstractListener_a85ce5d763a6fe81f224da9e33e123bff}\index{AbstractListener@{AbstractListener}!OnKeyPress@{OnKeyPress}}
+\index{OnKeyPress@{OnKeyPress}!AbstractListener@{AbstractListener}}
+\doxysubsubsection{\texorpdfstring{OnKeyPress()}{OnKeyPress()}}
+{\footnotesize\ttfamily \label{structAbstractListener_a85ce5d763a6fe81f224da9e33e123bff} 
+virtual char Abstract\+Listener\+::\+On\+Key\+Press (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Așteaptă și returnează următoarea tastă apăsată 
+
+\begin{DoxyReturn}{Returns}
+char Caracterul corespunzător tastei apăsate
+\end{DoxyReturn}
+Metodă blocantă care așteaptă ca utilizatorul să apese o tastă și returnează caracterul corespunzător.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{AbstractListener*\ listener\ =\ \textcolor{keyword}{new}\ CmdListener();}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ key\ =\ listener-\/>\mbox{\hyperlink{structAbstractListener_a85ce5d763a6fe81f224da9e33e123bff}{OnKeyPress}}();\ \ \textcolor{comment}{//\ Așteaptă\ input}}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (key\ ==\ \textcolor{charliteral}{'w'})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Mișcă\ în\ sus}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Implementarea concretă depinde de platforma/contextul de input 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{classCmdListener_aec8fb63e0704d309f3d3ab065180f3d7}{Cmd\+Listener}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{AbstractListener_8hpp}{Abstract\+Listener.\+hpp}}\end{DoxyCompactItemize}

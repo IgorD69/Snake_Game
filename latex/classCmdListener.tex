@@ -1,0 +1,195 @@
+\doxysection{Cmd\+Listener Class Reference}
+\hypertarget{classCmdListener}{}\label{classCmdListener}\index{CmdListener@{CmdListener}}
+
+
+Implementare a input-\/ului pentru terminal.  
+
+
+
+
+{\ttfamily \#include $<$Cmd\+Listener.\+hpp$>$}
+
+Inheritance diagram for Cmd\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCmdListener}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCmdListener_ae661153a540ab4b4bfc91adaa6bb8d06}{Cmd\+Listener}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCmdListener_ac5e156d6164238dcd4d1dcf04013e5d4}{\texorpdfstring{$\sim$}{\string~}\+Cmd\+Listener}} () override
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classCmdListener_aec8fb63e0704d309f3d3ab065180f3d7}{On\+Key\+Press}} () override
+\begin{DoxyCompactList}\small\item\em Citește următorul caracter din input. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCmdListener_a744fb8f869ef29092582d1bb8d0f110f}{Is\+Key\+Pressed}} (int key) override
+\begin{DoxyCompactList}\small\item\em Verifică dacă există input disponibil. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{structAbstractListener}{Abstract\+Listener}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{structAbstractListener_aa3b6cbb351e4a6b10d8d2845be105cd2}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+Listener}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementare a input-\/ului pentru terminal. 
+
+\doxylink{classCmdListener}{Cmd\+Listener} gestionează input-\/ul de la tastatură în modul terminal folosind biblioteca termios pentru configurare non-\/canonică și non-\/blocking I/O.
+
+Caracteristici\+:
+\begin{DoxyItemize}
+\item Input non-\/blocant (nu blochează executia programului)
+\item Modul raw (citește fiecare tastă individual, fără buffer)
+\item Nu afișează caracterele apăsate (no echo)
+\item Restaurează setările terminalului la distrugere
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Funcționează doar pe sisteme POSIX (Linux, mac\+OS, Unix) 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Modifică setările terminalului -\/ trebuie restaurate corect
+\end{DoxyWarning}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classCmdListener_ae661153a540ab4b4bfc91adaa6bb8d06}{CmdListener}}\ listener;}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (listener.\mbox{\hyperlink{classCmdListener_a744fb8f869ef29092582d1bb8d0f110f}{IsKeyPressed}}(0))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ key\ =\ listener.\mbox{\hyperlink{classCmdListener_aec8fb63e0704d309f3d3ab065180f3d7}{OnKeyPress}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (key\ ==\ \textcolor{charliteral}{'q'})\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{//\ Setările\ terminalului\ sunt\ restaurate\ automat\ la\ distrugere}}
+
+\end{DoxyCode}
+ 
+
+\label{doc-constructors}
+\Hypertarget{classCmdListener_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCmdListener_ae661153a540ab4b4bfc91adaa6bb8d06}\index{CmdListener@{CmdListener}!CmdListener@{CmdListener}}
+\index{CmdListener@{CmdListener}!CmdListener@{CmdListener}}
+\doxysubsubsection{\texorpdfstring{CmdListener()}{CmdListener()}}
+{\footnotesize\ttfamily \label{classCmdListener_ae661153a540ab4b4bfc91adaa6bb8d06} 
+Cmd\+Listener\+::\+Cmd\+Listener (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Inițializează listener-\/ul și configurează terminalul pentru\+:
+\begin{DoxyItemize}
+\item Modul non-\/canonic (ICANON disabled)
+\item Echo-\/ul dezactivat (ECHO disabled)
+\item I/O non-\/blocant (O\+\_\+\+NONBLOCK)
+\end{DoxyItemize}
+
+Salvează setările vechi ale terminalului pentru restaurare ulterioară.
+
+\begin{DoxyNote}{Note}
+Modifică setările globale ale terminalului 
+\end{DoxyNote}
+\Hypertarget{classCmdListener_ac5e156d6164238dcd4d1dcf04013e5d4}\index{CmdListener@{CmdListener}!````~CmdListener@{\texorpdfstring{$\sim$}{\string~}CmdListener}}
+\index{````~CmdListener@{\texorpdfstring{$\sim$}{\string~}CmdListener}!CmdListener@{CmdListener}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CmdListener()}{\string~CmdListener()}}
+{\footnotesize\ttfamily \label{classCmdListener_ac5e156d6164238dcd4d1dcf04013e5d4} 
+Cmd\+Listener\+::\texorpdfstring{$\sim$}{\string~}\+Cmd\+Listener (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructor. 
+
+Restaurează setările originale ale terminalului salvate în constructor. Esențial pentru a nu lăsa terminalul într-\/o stare inconsistentă.
+
+\begin{DoxyNote}{Note}
+Apelat automat la distrugerea obiectului 
+\end{DoxyNote}
+
+
+\label{doc-func-members}
+\Hypertarget{classCmdListener_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCmdListener_a744fb8f869ef29092582d1bb8d0f110f}\index{CmdListener@{CmdListener}!IsKeyPressed@{IsKeyPressed}}
+\index{IsKeyPressed@{IsKeyPressed}!CmdListener@{CmdListener}}
+\doxysubsubsection{\texorpdfstring{IsKeyPressed()}{IsKeyPressed()}}
+{\footnotesize\ttfamily \label{classCmdListener_a744fb8f869ef29092582d1bb8d0f110f} 
+bool Cmd\+Listener\+::\+Is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă există input disponibil. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Parametru nefolosit (pentru compatibilitate cu interfața) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true dacă există input disponibil, false altfel
+\end{DoxyReturn}
+Folosește select() pentru a verifica instant dacă există date disponibile în stdin fără a le citi efectiv.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classCmdListener_ae661153a540ab4b4bfc91adaa6bb8d06}{CmdListener}}\ listener;}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (listener.\mbox{\hyperlink{classCmdListener_a744fb8f869ef29092582d1bb8d0f110f}{IsKeyPressed}}(0))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{char}\ ch\ =\ listener.\mbox{\hyperlink{classCmdListener_aec8fb63e0704d309f3d3ab065180f3d7}{OnKeyPress}}();}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Procesează\ input-\/ul}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Timeout-\/ul este 0, deci verificarea este instantanee 
+
+Parametrul key nu este folosit în această implementare 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{structAbstractListener_a96a03168c1170193e070f43bd4c9f576}{Abstract\+Listener}}.
+
+\Hypertarget{classCmdListener_aec8fb63e0704d309f3d3ab065180f3d7}\index{CmdListener@{CmdListener}!OnKeyPress@{OnKeyPress}}
+\index{OnKeyPress@{OnKeyPress}!CmdListener@{CmdListener}}
+\doxysubsubsection{\texorpdfstring{OnKeyPress()}{OnKeyPress()}}
+{\footnotesize\ttfamily \label{classCmdListener_aec8fb63e0704d309f3d3ab065180f3d7} 
+char Cmd\+Listener\+::\+On\+Key\+Press (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Citește următorul caracter din input. 
+
+\begin{DoxyReturn}{Returns}
+char Caracterul citit sau 0 dacă nu există input
+\end{DoxyReturn}
+Încearcă să citească un caracter din stdin în mod non-\/blocant.
+
+\begin{DoxyReturn}{Returns}
+Caracterul apăsat dacă există, 0 altfel
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classCmdListener_ae661153a540ab4b4bfc91adaa6bb8d06}{CmdListener}}\ listener;}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ ch\ =\ listener.\mbox{\hyperlink{classCmdListener_aec8fb63e0704d309f3d3ab065180f3d7}{OnKeyPress}}();}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (ch\ !=\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ai\ apăsat:\ "{}}\ <<\ ch\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Metodă non-\/blocantă -\/ returnează imediat chiar dacă nu există input 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{structAbstractListener_a85ce5d763a6fe81f224da9e33e123bff}{Abstract\+Listener}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{CmdListener_8hpp}{Cmd\+Listener.\+hpp}}\item 
+Cmd\+Listener.\+cpp\end{DoxyCompactItemize}

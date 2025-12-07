@@ -1,326 +1,340 @@
-# Ghid de Implementare - Laborator 06
+# Snake Game
 
-**Proiect:** Snake Game
-**Autor:** Igor Dodan
-**Laborator:** Lab 06 - Suportul proiectului și elaborarea documentației
+**Project:** Snake Game
+**Author:** Dodan Igor
+**Year:** 2025
 
-## Sumar
+---
 
-Acest document descrie pașii de implementare pentru cerințele laboratorului 06, incluzând:
-- Documentarea codului sursă cu comentarii Doxygen
-- Crearea fișierului README.md complet
-- Implementarea testelor unitare
-- Actualizarea sistemului de build (Makefile)
+## 📖 Project Description
 
-## 📋 Cerințe Îndeplinite
+Snake Game is a modern implementation of the classic Snake game, developed in C++ using the Raylib graphics library. The game offers a pleasant visual experience with colorful graphics and intuitive controls.
 
-### ✅ 1. Documentația Codului Sursă
+### Main Features:
+- **Modern Graphics** - Rendering with Raylib, vibrant colors and smooth animations
+- **Intuitive Controls** - Support for WASD and arrow keys
+- **Score System** - Real-time progress tracking
+- **Restart Mechanism** - Quick restart after game over
+- **Modular Architecture** - Well-structured and easily extensible code
 
-Am adăugat documentație completă folosind stilul Doxygen pentru următoarele fișiere:
+---
 
-#### Position.hpp
-- Metainformație (nume proiect, autor, an)
-- Descrierea clasei Position
-- Documentație pentru toate metodele publice și private
-- Exemple de utilizare pentru funcții complexe
+## 🎮 Game Rules
 
-#### Apple.hpp
-- Metainformație completă
-- Descrierea clasei Apple
-- Documentație detaliată pentru metode
-- Note despre comportamentul aleatoriu
+### Objective
+The goal of the game is to control the snake to collect as many apples as possible, thus increasing your length and score. The game ends when the snake hits a wall or its own body.
 
-#### Direction.hpp
-- Metainformație
-- Documentație pentru enumerare
-- Funcții helper documentate
-- Exemple de conversie taste-direcții
+### Controls
+- **W** or **↑** - Move up
+- **S** or **↓** - Move down
+- **A** or **←** - Move left
+- **D** or **→** - Move right
+- **R** - Restart after game over
+- **Q** or **ESC** - Exit game
 
-#### Map.hpp
-- Metainformație
-- Descrierea clasei Map
-- Documentație pentru verificarea limitelor
-- Note despre sistemul de coordonate
+### Game Mechanics
 
-### ✅ 2. Fișierul README.md
+1. **Start**
+   - Snake begins with length 1 in the center of the map
+   - Moves automatically to the right
+   - Apple is placed randomly on the map
 
-Am creat un fișier README.md complet care conține:
+2. **Collecting Apples**
+   - When the snake reaches the apple, it is eaten
+   - Snake grows by one segment
+   - Score increases by 1 point
+   - A new apple appears in a random position
 
-#### Descrierea Proiectului
-- Prezentare generală a jocului
-- Scopul și funcționalitatea
+3. **Movement**
+   - Snake moves continuously in the current direction
+   - Speed is constant (0.15 seconds between moves)
+   - You can change direction anytime with control keys
 
-#### Regulile Jocului
-- Obiectiv
-- Controale (W/A/S/D și săgeți)
-- Mecanica jocului
-- Condiții de game over
-- Sistem de scor
+4. **Collisions**
+   - **With Walls** - Game ends if snake hits the map edge
+   - **With Own Body** - Game ends if head hits another segment of the snake
 
-#### Dependențe
-- **Mediul de dezvoltare:** Linux/Unix/macOS/WSL
-- **Compilator:** g++ (versiunea 7.0+)
-- **Biblioteci:**
-  - ncurses (pentru interfața grafică)
-  - Google Test (pentru teste unitare - opțional)
-- Instrucțiuni de instalare pentru diferite distribuții
+5. **Game Over**
+   - On collision, game pauses
+   - "GAME OVER!" message appears
+   - Press **R** to restart the game
+   - Press **Q** or **ESC** to exit
 
-#### Construirea Aplicației
-- Comenzi pentru clonare repository
-- Comenzi de compilare (`make`)
-- Comenzi de rulare (`./Player.out`)
-- Comenzi de curățare (`make clean`)
-- Comenzi pentru teste (`make tests`, `make run_tests`)
+### Scoring System
+- Initial score: 0
+- +1 point for each apple collected
+- Score = snake length - 1
+- Score is displayed continuously at the bottom of the screen
 
-### ✅ 3. Teste Unitare
+---
 
-Am creat directorul `tests/` cu următoarele fișiere de test:
+## 🔧 Dependencies
 
-#### tests/test_position.cpp
-**30 de teste** pentru clasa Position:
-- Constructori (implicit și cu parametri)
-- Getteri și setteri (getX, getY, setX, setY, setPosition)
-- Operatori (==, !=)
-- Verificarea limitelor (isWithinBounds)
-- Distanța Manhattan (manhattanDistance)
-- Cazuri speciale (coordonate negative, margini, etc.)
+### Development Environment
+- **Supported Operating Systems:**
+  - Linux (Ubuntu, Debian, Fedora, Arch, etc.)
+  - macOS (with Homebrew)
+  - Windows (via WSL - Windows Subsystem for Linux)
 
-**Teste importante:**
-```cpp
-TEST_F(PositionTest, DefaultConstructor)
-TEST_F(PositionTest, EqualityOperator)
-TEST_F(PositionTest, IsWithinBounds)
-TEST_F(PositionTest, ManhattanDistance)
-```
+### Compiler
+- **g++** version 7.0 or newer
+- Support for C++11 standard or higher
+- Version check:
+  ```bash
+  g++ --version
+  ```
 
-#### tests/test_apple.cpp
-**23 de teste** pentru clasa Apple:
-- Constructori
-- Getteri și setteri poziție
-- Generarea poziției aleatoare
-- Verificarea poziției (isAtPosition)
-- Funcția respawn
-- Varietatea pozițiilor generate
-- Cazuri edge (margini, spații înguste)
+### Main Libraries
 
-**Teste importante:**
-```cpp
-TEST_F(AppleTest, GenerateRandomPosition)
-TEST_F(AppleTest, RandomPositionVariability)
-TEST_F(AppleTest, Respawn)
-```
+#### 1. Raylib (Required)
+Graphics library used for rendering, windows, and input.
 
-#### tests/test_map.cpp
-**27 de teste** pentru clasa Map:
-- Constructori (implicit și cu parametri)
-- Getteri și setteri (width, height)
-- Verificarea limitelor (isWithinBounds)
-- Verificarea marginilor (isOnBorder)
-- Calcul arie (getArea)
-- Poziție centrală (getCenterPosition)
-- Generarea poziției aleatoare
-- Funcția reset
-- Operatori de comparare
-- Hărți de dimensiuni diferite
-
-**Teste importante:**
-```cpp
-TEST_F(MapTest, IsWithinBounds)
-TEST_F(MapTest, IsOnBorder)
-TEST_F(MapTest, GetCenterPosition)
-```
-
-### ✅ 4. Actualizarea Makefile
-
-Am creat un Makefile complet cu următoarele funcționalități:
-
-#### Comenzi Principale
+**Install Ubuntu/Debian:**
 ```bash
-make              # Compilare joc
-make run          # Compilare și rulare joc
-make clean        # Curățare fișiere compilate
+sudo apt-get update
+sudo apt-get install libraylib-dev
 ```
 
-#### Comenzi pentru Teste
+**Install Fedora:**
 ```bash
-make tests                    # Compilare teste
-make run_tests               # Rulare toate testele
-make run_tests_verbose       # Rulare teste cu detalii
-make run_tests_filter FILTER=PositionTest.*  # Rulare teste filtrate
-make clean_tests             # Curățare fișiere teste
+sudo dnf install raylib-devel
 ```
 
-#### Comenzi Utilitare
+**Install Arch Linux:**
 ```bash
-make check_deps    # Verifică dependențele instalate
-make rebuild       # Curățare și recompilare completă
-make clean_all     # Curățare completă (joc + teste)
-make help          # Afișează mesaj de ajutor
-make install_deps  # Instalează dependențele (Ubuntu/Debian)
-make docs          # Generează documentație Doxygen
+sudo pacman -S raylib
 ```
 
-## 🚀 Pași de Utilizare
-
-### Pas 1: Configurare Ramură
+**Install macOS (Homebrew):**
 ```bash
-cd Snake_Game
-git checkout -b lab06
+brew install raylib
 ```
 
-### Pas 2: Adăugare Fișiere
+**Compile from source (all platforms):**
 ```bash
-# Creează directorul tests
-mkdir -p tests
-
-# Copiază fișierele furnizate în locațiile corespunzătoare
-# - README.md (în root)
-# - Position.hpp, Apple.hpp, Direction.hpp, Map.hpp (actualizate)
-# - tests/test_position.cpp
-# - tests/test_apple.cpp
-# - tests/test_map.cpp
-# - Makefile (actualizat)
-# - Doxyfile (opțional, pentru documentație)
+git clone https://github.com/raysan5/raylib.git
+cd raylib/src
+make PLATFORM=PLATFORM_DESKTOP
+sudo make install
 ```
 
-### Pas 3: Verificare Dependențe
+**Install macOS:**
+```bash
+brew install googletest
+```
+
+### Checking Dependencies
+
+You can verify if all dependencies are installed using:
 ```bash
 make check_deps
 ```
 
-Dacă lipsesc dependențe, pe Ubuntu/Debian:
-```bash
-# Pentru ncurses
-sudo apt-get install libncurses5-dev libncursesw5-dev
+---
 
-# Pentru Google Test
-sudo apt-get install libgtest-dev
-cd /usr/src/gtest
-sudo cmake CMakeLists.txt
-sudo make
-sudo cp *.a /usr/lib
+## 🛠️ Building the Application
+
+### 1. Cloning the Repository
+
+```bash
+git clone https://github.com/username/Snake_Game.git
+cd Snake_Game
 ```
 
-### Pas 4: Compilare și Testare
+### 2. Compiling the Game
+
+#### Simple compilation:
 ```bash
-# Compilare joc
 make
+```
 
-# Rulare joc
+This will generate the `snake_game` executable in the current directory.
+
+#### Compile and run:
+```bash
 make run
+```
 
-# Compilare teste
+### 3. Running the Game
+
+After compilation, run the game with:
+```bash
+./snake_game
+```
+
+### 4. Cleaning Generated Files
+
+To delete object files and executable:
+```bash
+make clean
+```
+
+For complete cleanup (including tests):
+```bash
+make clean_all
+```
+
+### 5. Complete Recompilation
+
+To recompile everything from scratch:
+```bash
+make rebuild
+```
+
+---
+
+## 🧪 Testing
+
+The project includes unit tests for the main components.
+
+### Compiling Tests
+
+```bash
 make tests
+```
 
-# Rulare teste
+### Running Tests
+
+**Run all tests:**
+```bash
 make run_tests
 ```
 
-### Pas 5: Verificare Documentație
+**Run with detailed output:**
 ```bash
-# Generare documentație HTML (dacă ai Doxygen instalat)
+make run_tests_verbose
+```
+
+**Run specific tests:**
+```bash
+make run_tests_filter FILTER=PositionTest.*
+```
+
+### Available Tests
+
+- **test_position** - 30 tests for Position class
+- **test_apple** - 23 tests for Apple class
+- **test_map** - 27 tests for Map class
+
+---
+
+## 📁 Project Structure
+
+```
+Snake_Game/
+├── main.cpp              # Application entry point
+├── Engine.hpp/cpp        # Main game engine
+├── Player.hpp/cpp        # Snake logic
+├── Apple.hpp/cpp         # Apple logic
+├── Map.hpp/cpp           # Map management
+├── Position.hpp/cpp      # Structure for coordinates
+├── Direction.hpp/cpp     # Enumeration for directions
+├── AbstractListener.hpp  # Interface for input
+├── CmdListener.hpp/cpp   # Terminal input
+├── Abstract_Renderer.hpp # Interface for rendering
+├── Renderer.hpp/cpp      # Raylib rendering
+├── tests/                # Unit tests
+│   ├── test_position.cpp
+│   ├── test_apple.cpp
+│   └── test_map.cpp
+├── Makefile             # Build system
+├── Doxyfile             # Doxygen configuration
+└── README.md            # This file
+```
+
+---
+
+## 📚 Documentation
+
+### Generating Documentation
+
+The project uses Doxygen for automatic documentation.
+
+**Install Doxygen:**
+```bash
+# Ubuntu/Debian
+sudo apt-get install doxygen
+
+# Arch
+sudo pacman -S doxygen
+
+# macOS
+brew install doxygen
+```
+
+**Generate documentation:**
+```bash
+make docs
+```
+or
+```bash
 doxygen Doxyfile
-
-# Documentația va fi în directorul docs/html/
-# Deschide docs/html/index.html în browser
 ```
 
-### Pas 6: Commit și Push
+HTML documentation will be generated in `docs/html/`. Open `docs/html/index.html` in a browser to view it.
+
+---
+
+## 🎯 Useful Makefile Commands
+
+| Command | Description |
+|---------|-------------|
+| `make` | Compile the game |
+| `make run` | Compile and run the game |
+| `make clean` | Delete compiled files |
+| `make rebuild` | Clean and recompile everything |
+| `make tests` | Compile unit tests |
+| `make run_tests` | Run all tests |
+| `make run_tests_verbose` | Run tests with detailed output |
+| `make clean_tests` | Delete test files |
+| `make clean_all` | Complete cleanup (game + tests) |
+| `make check_deps` | Check installed dependencies |
+| `make docs` | Generate Doxygen documentation |
+| `make help` | Display help for commands |
+
+---
+
+### C++11 compilation error
+
+**Solution:** Make sure you're using a recent compiler.
 ```bash
-git add .
-git commit -m "Lab06: Add documentation and unit tests"
-git push origin lab06
+g++ --version  # Check version
+# Should be 7.0+
 ```
 
-## 📊 Statistici Implementare
+---
 
-### Linii de Cod Adăugate
-- **Documentație în headers:** ~500 linii
-- **README.md:** ~300 linii
-- **Teste unitare:** ~800 linii
-- **Makefile:** ~250 linii
-- **Total:** ~1850 linii noi
+## 🤝 Contributing
 
-### Acoperire Teste
-- **Position:** 30 teste, ~95% acoperire
-- **Apple:** 23 teste, ~90% acoperire
-- **Map:** 27 teste, ~90% acoperire
-- **Total:** 80 de teste unitare
+Contributions are welcome! For major changes:
 
-### Timp Estimat de Execuție
-- Compilare joc: ~2-3 secunde
-- Compilare teste: ~3-5 secunde
-- Rulare teste: <1 secundă
-- Generare documentație: ~5-10 secunde
+1. Fork the repository
+2. Create a branch for your feature (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📝 Note Importante
+---
 
-### Pentru Evaluare
-1. **Toate fișierele header conțin:**
-   - Metainformație completă (nume proiect, autor, an)
-   - Descriere detaliată a clasei
-   - Documentație pentru fiecare metodă
-   - Exemple unde este relevant
+## 👤 Author
 
-2. **README.md conține:**
-   - Descriere completă a proiectului
-   - Regulile jocului detaliate
-   - Lista completă a dependențelor
-   - Instrucțiuni clare de compilare și rulare
+**Dodan Igor**  
+---
 
-3. **Teste unitare:**
-   - Directorul `tests/` creat
-   - Minimum 3 fișiere de test
-   - Testează clasele de date (Position, Apple, Map)
-   - Acoperire largă a funcționalităților
+## 📞 Contact and Support
 
-4. **Makefile actualizat:**
-   - Target pentru compilare teste
-   - Target pentru rulare teste
-   - Comenzi de curățare pentru teste
-   - Documentație (help)
+For questions, issues, or suggestions:
+- Open an issue on GitHub
+- Contact the author via email
+- Consult the Doxygen documentation
 
-### Recomandări
-- Rulează `make check_deps` înainte de compilare
-- Asigură-te că toate testele trec cu `make run_tests`
-- Verifică documentația generată cu Doxygen
-- Testează jocul după fiecare modificare
+---
 
-### Troubleshooting
+## 🎓 Additional Resources
 
-**Problema:** ncurses nu este găsit
-```bash
-sudo apt-get install libncurses5-dev libncursesw5-dev
-```
-
-**Problema:** Google Test nu este găsit
-```bash
-sudo apt-get install libgtest-dev
-cd /usr/src/gtest && sudo cmake . && sudo make && sudo cp *.a /usr/lib
-```
-
-**Problema:** Testele nu se compilează
-- Verifică că toate header-urile sunt în același director cu testele
-- Asigură-te că Google Test este instalat corect
-
-## ✅ Checklist Final
-
-- [ ] Toate header-urile au documentație completă Doxygen
-- [ ] README.md conține toate secțiunile cerute
-- [ ] Directorul `tests/` este creat
-- [ ] Cel puțin 3 fișiere de test sunt implementate
-- [ ] Makefile conține target-uri pentru teste
-- [ ] Toate testele trec (`make run_tests` reușește)
-- [ ] Jocul compilează și rulează (`make && make run`)
-- [ ] Documentația Doxygen se generează fără erori
-- [ ] Toate fișierele sunt în ramura `lab06`
-- [ ] Modificările sunt push-ate pe GitHub
-
-## 📚 Referințe
-
+- [Raylib Documentation](https://www.raylib.com/)
 - [Doxygen Manual](https://www.doxygen.nl/manual/)
 - [Google Test Documentation](https://google.github.io/googletest/)
-- [GNU Make Manual](https://www.gnu.org/software/make/manual/)
-- [ncurses Documentation](https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/)
+- [C++ Reference](https://en.cppreference.com/)
 
 ---

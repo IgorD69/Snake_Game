@@ -1,0 +1,199 @@
+\doxysection{Direction.\+hpp File Reference}
+\hypertarget{Direction_8hpp}{}\label{Direction_8hpp}\index{Direction.hpp@{Direction.hpp}}
+
+
+Definirea enumerării \doxylink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction} pentru direcțiile de mișcare.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}} \+: char \{ \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601afbaedde498cdead4f2780217646e9ba1}{UP}} = \textquotesingle{}w\textquotesingle{}
+, \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601ac4e0e4e3118472beeb2ae75827450f1f}{DOWN}} = \textquotesingle{}s\textquotesingle{}
+, \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601a684d325a7303f52e64011467ff5c5758}{LEFT}} = \textquotesingle{}a\textquotesingle{}
+, \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601a21507b40c80068eda19865706fdc2403}{RIGHT}} = \textquotesingle{}d\textquotesingle{}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerare pentru reprezentarea direcțiilor de mișcare. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{Direction_8hpp_adffd81da05054a5cb3a2360315496604}{To\+String}} (const \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}} \&direction)
+\begin{DoxyCompactList}\small\item\em Convertește o direcție în șir de caractere. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{Direction_8hpp_a5d2c762d0c8957bd19d17ecace87df54}{To\+Char}} (const \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}} \&direction)
+\begin{DoxyCompactList}\small\item\em Convertește o direcție în caracter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}} \mbox{\hyperlink{Direction_8hpp_a57b664f80a6f576283e454f2278d2e27}{From\+Char}} (char c)
+\begin{DoxyCompactList}\small\item\em Convertește un caracter în direcție. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{Direction_8hpp_a0ea4b80cc44138707357bf34202ff3cc}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}} \&direction)
+\begin{DoxyCompactList}\small\item\em Operator de ieșire pentru afișarea unei direcții. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definirea enumerării \doxylink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction} pentru direcțiile de mișcare. 
+
+@project Snake Game \begin{DoxyAuthor}{Author}
+Dodan Igor 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025
+\end{DoxyDate}
+Acest fișier conține definirea enumerării \doxylink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction} care reprezintă cele patru direcții posibile de mișcare în joc (sus, jos, stânga, dreapta). Include și funcții helper pentru conversia între direcții și caractere. 
+
+\label{doc-enum-members}
+\Hypertarget{Direction_8hpp_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}\index{Direction.hpp@{Direction.hpp}!Direction@{Direction}}
+\index{Direction@{Direction}!Direction.hpp@{Direction.hpp}}
+\doxysubsubsection{\texorpdfstring{Direction}{Direction}}
+{\footnotesize\ttfamily \label{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601} 
+enum class \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}} \+: char\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enumerare pentru reprezentarea direcțiilor de mișcare. 
+
+\doxylink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction} definește cele patru direcții cardinale în care se poate mișca șarpele. Fiecare direcție este asociată cu o tastă WASD.
+
+\begin{DoxyNote}{Note}
+Valorile sunt stocate ca caractere pentru mapare directă cu tastele 
+\end{DoxyNote}
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP@{UP}!Direction.hpp@{Direction.hpp}}\index{Direction.hpp@{Direction.hpp}!UP@{UP}}}\Hypertarget{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601afbaedde498cdead4f2780217646e9ba1}\label{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601afbaedde498cdead4f2780217646e9ba1} 
+UP&Mișcare în sus (tasta W). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN@{DOWN}!Direction.hpp@{Direction.hpp}}\index{Direction.hpp@{Direction.hpp}!DOWN@{DOWN}}}\Hypertarget{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601ac4e0e4e3118472beeb2ae75827450f1f}\label{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601ac4e0e4e3118472beeb2ae75827450f1f} 
+DOWN&Mișcare în jos (tasta S). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!Direction.hpp@{Direction.hpp}}\index{Direction.hpp@{Direction.hpp}!LEFT@{LEFT}}}\Hypertarget{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601a684d325a7303f52e64011467ff5c5758}\label{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601a684d325a7303f52e64011467ff5c5758} 
+LEFT&Mișcare la stânga (tasta A). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!Direction.hpp@{Direction.hpp}}\index{Direction.hpp@{Direction.hpp}!RIGHT@{RIGHT}}}\Hypertarget{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601a21507b40c80068eda19865706fdc2403}\label{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601a21507b40c80068eda19865706fdc2403} 
+RIGHT&Mișcare la dreapta (tasta D). \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{Direction_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{Direction_8hpp_a57b664f80a6f576283e454f2278d2e27}\index{Direction.hpp@{Direction.hpp}!FromChar@{FromChar}}
+\index{FromChar@{FromChar}!Direction.hpp@{Direction.hpp}}
+\doxysubsubsection{\texorpdfstring{FromChar()}{FromChar()}}
+{\footnotesize\ttfamily \label{Direction_8hpp_a57b664f80a6f576283e454f2278d2e27} 
+\mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}} From\+Char (\begin{DoxyParamCaption}\item[{char}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Convertește un caracter în direcție. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Caracterul de convertit (\textquotesingle{}w\textquotesingle{}, \textquotesingle{}s\textquotesingle{}, \textquotesingle{}a\textquotesingle{}, sau \textquotesingle{}d\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction} Direcția corespunzătoare 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Dacă caracterul nu este valid\\
+\hline
+\end{DoxyExceptions}
+Creează o direcție din tasta apăsată de utilizator.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ input\ =\ \textcolor{charliteral}{'w'};}
+\DoxyCodeLine{\mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}}\ dir\ =\ \mbox{\hyperlink{Direction_8hpp_a57b664f80a6f576283e454f2278d2e27}{FromChar}}(input);\ \ \textcolor{comment}{//\ dir\ =\ Direction::UP}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+Aruncă excepție dacă caracterul nu este \textquotesingle{}w\textquotesingle{}, \textquotesingle{}s\textquotesingle{}, \textquotesingle{}a\textquotesingle{}, sau \textquotesingle{}d\textquotesingle{} 
+\end{DoxyWarning}
+\Hypertarget{Direction_8hpp_a0ea4b80cc44138707357bf34202ff3cc}\index{Direction.hpp@{Direction.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Direction.hpp@{Direction.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \label{Direction_8hpp_a0ea4b80cc44138707357bf34202ff3cc} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{const \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}} \&}]{direction}{}\end{DoxyParamCaption})}
+
+
+
+Operator de ieșire pentru afișarea unei direcții. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Stream-\/ul de ieșire \\
+\hline
+{\em direction} & Direcția de afișat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referință la stream-\/ul de ieșire
+\end{DoxyReturn}
+Scrie reprezentarea textuală a direcției în stream.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}}\ dir\ =\ \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601a21507b40c80068eda19865706fdc2403}{Direction::RIGHT}};}
+\DoxyCodeLine{std::cout\ <<\ dir;\ \ \textcolor{comment}{//\ Afișează\ "{}RIGHT"{}}}
+
+\end{DoxyCode}
+ \Hypertarget{Direction_8hpp_a5d2c762d0c8957bd19d17ecace87df54}\index{Direction.hpp@{Direction.hpp}!ToChar@{ToChar}}
+\index{ToChar@{ToChar}!Direction.hpp@{Direction.hpp}}
+\doxysubsubsection{\texorpdfstring{ToChar()}{ToChar()}}
+{\footnotesize\ttfamily \label{Direction_8hpp_a5d2c762d0c8957bd19d17ecace87df54} 
+char To\+Char (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}} \&}]{direction}{}\end{DoxyParamCaption})}
+
+
+
+Convertește o direcție în caracter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & Direcția de convertit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char Caracterul asociat (\textquotesingle{}w\textquotesingle{}, \textquotesingle{}s\textquotesingle{}, \textquotesingle{}a\textquotesingle{}, sau \textquotesingle{}d\textquotesingle{})
+\end{DoxyReturn}
+Returnează tasta asociată direcției.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}}\ dir\ =\ \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601afbaedde498cdead4f2780217646e9ba1}{Direction::UP}};}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ key\ =\ \mbox{\hyperlink{Direction_8hpp_a5d2c762d0c8957bd19d17ecace87df54}{ToChar}}(dir);\ \ \textcolor{comment}{//\ key\ =\ 'w'}}
+
+\end{DoxyCode}
+ \Hypertarget{Direction_8hpp_adffd81da05054a5cb3a2360315496604}\index{Direction.hpp@{Direction.hpp}!ToString@{ToString}}
+\index{ToString@{ToString}!Direction.hpp@{Direction.hpp}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily \label{Direction_8hpp_adffd81da05054a5cb3a2360315496604} 
+std\+::string To\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}} \&}]{direction}{}\end{DoxyParamCaption})}
+
+
+
+Convertește o direcție în șir de caractere. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & Direcția de convertit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string Reprezentarea textuală ("{}\+UP"{}, "{}\+DOWN"{}, "{}\+LEFT"{}, "{}\+RIGHT"{})
+\end{DoxyReturn}
+Returnează numele direcției ca șir de caractere pentru afișare sau debugging.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601}{Direction}}\ dir\ =\ \mbox{\hyperlink{Direction_8hpp_aefe42e8e600207b9808eeed5e8258601afbaedde498cdead4f2780217646e9ba1}{Direction::UP}};}
+\DoxyCodeLine{std::string\ name\ =\ \mbox{\hyperlink{Direction_8hpp_adffd81da05054a5cb3a2360315496604}{ToString}}(dir);\ \ \textcolor{comment}{//\ name\ =\ "{}UP"{}}}
+
+\end{DoxyCode}
+ 

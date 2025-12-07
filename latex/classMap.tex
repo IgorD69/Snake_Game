@@ -1,0 +1,188 @@
+\doxysection{Map Class Reference}
+\hypertarget{classMap}{}\label{classMap}\index{Map@{Map}}
+
+
+Clasă pentru reprezentarea hărții jocului Snake.  
+
+
+
+
+{\ttfamily \#include $<$Map.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMap_a3a451df7ea98e9f4f0b1f2fca381d057}{Map}} (int width=40, int height=40)
+\begin{DoxyCompactList}\small\item\em Constructor cu dimensiuni opționale. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMap_af19b58ddac9be188873d8e24133dd95b}{Map}} (const \mbox{\hyperlink{classMap}{Map}} \&other)
+\begin{DoxyCompactList}\small\item\em Constructor de copiere. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMap_a8acfef08e0010ceffca1c64524348175}{Get\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Obține lățimea hărții. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMap_af8ffc3cc8e20210220968322817a00d7}{Get\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Obține înălțimea hărții. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMap}{Map}} \mbox{\hyperlink{classMap_a4674a511615a3002b467d22d0ce6afce}{operator=}} (const \mbox{\hyperlink{classMap}{Map}} \&other)
+\begin{DoxyCompactList}\small\item\em Operator de atribuire. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMap_ab3e2316d4d182bef43f22e6a1c74feb1}{operator==}} (const \mbox{\hyperlink{classMap}{Map}} \&other) const
+\begin{DoxyCompactList}\small\item\em Operator de egalitate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clasă pentru reprezentarea hărții jocului Snake. 
+
+\doxylink{classMap}{Map} stochează dimensiunile hărții de joc și oferă funcționalități pentru verificarea limitelor și compararea hărților.
+
+\begin{DoxyNote}{Note}
+Coordonatele valide sunt în intervalul \mbox{[}0, width) și \mbox{[}0, height) 
+
+Dimensiunea implicită este 40x40 unități 
+\end{DoxyNote}
+
+
+\label{doc-constructors}
+\Hypertarget{classMap_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMap_a3a451df7ea98e9f4f0b1f2fca381d057}\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classMap_a3a451df7ea98e9f4f0b1f2fca381d057} 
+Map\+::\+Map (\begin{DoxyParamCaption}\item[{int}]{width}{ = {\ttfamily 40}, }\item[{int}]{height}{ = {\ttfamily 40}}\end{DoxyParamCaption})}
+
+
+
+Constructor cu dimensiuni opționale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Lățimea hărții (implicit 40) \\
+\hline
+{\em height} & Înălțimea hărții (implicit 40)\\
+\hline
+\end{DoxyParams}
+Creează o hartă cu dimensiunile specificate.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classMap_a3a451df7ea98e9f4f0b1f2fca381d057}{Map}}\ defaultMap;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Hartă\ 40x40}}
+\DoxyCodeLine{\mbox{\hyperlink{classMap_a3a451df7ea98e9f4f0b1f2fca381d057}{Map}}\ customMap(60,\ 30);\ \ \ \ \textcolor{comment}{//\ Hartă\ 60x30}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+Dimensiunile trebuie să fie pozitive 
+\end{DoxyWarning}
+\Hypertarget{classMap_af19b58ddac9be188873d8e24133dd95b}\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classMap_af19b58ddac9be188873d8e24133dd95b} 
+Map\+::\+Map (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMap}{Map}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Constructor de copiere. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Harta de copiat\\
+\hline
+\end{DoxyParams}
+Creează o copie exactă a unei alte hărți, inclusiv dimensiunile. 
+
+\label{doc-func-members}
+\Hypertarget{classMap_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMap_af8ffc3cc8e20210220968322817a00d7}\index{Map@{Map}!GetHeight@{GetHeight}}
+\index{GetHeight@{GetHeight}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{GetHeight()}{GetHeight()}}
+{\footnotesize\ttfamily \label{classMap_af8ffc3cc8e20210220968322817a00d7} 
+int Map\+::\+Get\+Height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obține înălțimea hărții. 
+
+\begin{DoxyReturn}{Returns}
+int Înălțimea în unități
+\end{DoxyReturn}
+Returnează numărul de unități pe verticală.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classMap_a3a451df7ea98e9f4f0b1f2fca381d057}{Map}}\ map(60,\ 30);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ h\ =\ map.GetHeight();\ \ \textcolor{comment}{//\ h\ =\ 30}}
+
+\end{DoxyCode}
+ \Hypertarget{classMap_a8acfef08e0010ceffca1c64524348175}\index{Map@{Map}!GetWidth@{GetWidth}}
+\index{GetWidth@{GetWidth}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{GetWidth()}{GetWidth()}}
+{\footnotesize\ttfamily \label{classMap_a8acfef08e0010ceffca1c64524348175} 
+int Map\+::\+Get\+Width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obține lățimea hărții. 
+
+\begin{DoxyReturn}{Returns}
+int Lățimea în unități
+\end{DoxyReturn}
+Returnează numărul de unități pe orizontală.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classMap_a3a451df7ea98e9f4f0b1f2fca381d057}{Map}}\ map(60,\ 30);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ w\ =\ map.GetWidth();\ \ \textcolor{comment}{//\ w\ =\ 60}}
+
+\end{DoxyCode}
+ \Hypertarget{classMap_a4674a511615a3002b467d22d0ce6afce}\index{Map@{Map}!operator=@{operator=}}
+\index{operator=@{operator=}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classMap_a4674a511615a3002b467d22d0ce6afce} 
+\mbox{\hyperlink{classMap}{Map}} Map\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMap}{Map}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Operator de atribuire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Harta sursă \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classMap}{Map} Referință la obiectul curent
+\end{DoxyReturn}
+Copiază dimensiunile din altă hartă în harta curentă. \Hypertarget{classMap_ab3e2316d4d182bef43f22e6a1c74feb1}\index{Map@{Map}!operator==@{operator==}}
+\index{operator==@{operator==}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{classMap_ab3e2316d4d182bef43f22e6a1c74feb1} 
+bool Map\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMap}{Map}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Operator de egalitate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Harta de comparat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true dacă hărțile au aceleași dimensiuni, false altfel
+\end{DoxyReturn}
+Compară două hărți verificând dacă au aceeași lățime și înălțime.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classMap_a3a451df7ea98e9f4f0b1f2fca381d057}{Map}}\ map1(40,\ 40);}
+\DoxyCodeLine{\mbox{\hyperlink{classMap_a3a451df7ea98e9f4f0b1f2fca381d057}{Map}}\ map2(40,\ 40);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (map1\ ==\ map2)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hărțile\ au\ aceleași\ dimensiuni\(\backslash\)n"{}};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Map_8hpp}{Map.\+hpp}}\item 
+Map.\+cpp\end{DoxyCompactItemize}

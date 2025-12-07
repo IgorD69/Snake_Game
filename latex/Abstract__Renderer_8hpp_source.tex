@@ -1,0 +1,24 @@
+\doxysection{Abstract\+\_\+\+Renderer.\+hpp}
+\hypertarget{Abstract__Renderer_8hpp_source}{}\label{Abstract__Renderer_8hpp_source}\mbox{\hyperlink{Abstract__Renderer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Position_8hpp}{Position.hpp}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{using\ }\mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{GameImage}}\ =\ std::vector<std::string>;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structAbstractRenderer}{AbstractRenderer}}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structAbstractRenderer_ab0a47aea5951b77e6861edcb6997388c}{\string~AbstractRenderer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structAbstractRenderer_ada233680fb38c1537656065bdc573088}{ClearScreen}}()\ =\ 0;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structAbstractRenderer_a599ef6d387695feb5c528ace47866e56}{DrawImage}}(\mbox{\hyperlink{structPosition}{Position}}\ topLeft,\ \mbox{\hyperlink{structPosition}{Position}}\ bottomRight,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{GameImage}}\&\ image)\ =\ 0;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structAbstractRenderer_a291d4db6eccc2b4ed61baea3c55b9af7}{WriteText}}(\mbox{\hyperlink{structPosition}{Position}}\ position,\ \textcolor{keyword}{const}\ std::string\&\ text)\ =\ 0;}
+\DoxyCodeLine{00128\ \};}
+
+\end{DoxyCode}
