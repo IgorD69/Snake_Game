@@ -1,0 +1,144 @@
+\doxysection{Position Struct Reference}
+\hypertarget{structPosition}{}\label{structPosition}\index{Position@{Position}}
+
+
+Structură pentru reprezentarea unei poziții 2D în spațiul jocului.  
+
+
+
+
+{\ttfamily \#include $<$Position.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structPosition_a9d56fe16af27a28c3a08b57274aff4eb}{Position}} (int \+\_\+x=0, int \+\_\+y=0)
+\begin{DoxyCompactList}\small\item\em Constructor cu parametri opționali. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPosition_a3a9d2597283a5b09328cbe2391da0775}{Position}} (const \mbox{\hyperlink{structPosition}{Position}} \&other)
+\begin{DoxyCompactList}\small\item\em Constructor de copiere. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPosition}{Position}} \mbox{\hyperlink{structPosition_a2536e7db959c42035c7f908a3ed28ac0}{operator=}} (const \mbox{\hyperlink{structPosition}{Position}} \&other)
+\begin{DoxyCompactList}\small\item\em Operator de atribuire. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structPosition_acf13e7e45c7c07a67c2adf2f7e1dcc5f}{operator==}} (const \mbox{\hyperlink{structPosition}{Position}} \&other) const
+\begin{DoxyCompactList}\small\item\em Operator de egalitate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structPosition_aeda152ffeee17ae5be9c02327b2408d8}\label{structPosition_aeda152ffeee17ae5be9c02327b2408d8} 
+int {\bfseries x}
+\begin{DoxyCompactList}\small\item\em Coordonata X (orizontală). \end{DoxyCompactList}\item 
+\Hypertarget{structPosition_a3c08e9213d4726b21caba3073192c4a3}\label{structPosition_a3c08e9213d4726b21caba3073192c4a3} 
+int {\bfseries y}
+\begin{DoxyCompactList}\small\item\em Coordonata Y (verticală). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structură pentru reprezentarea unei poziții 2D în spațiul jocului. 
+
+\doxylink{structPosition}{Position} stochează coordonatele x și y și oferă operații de bază pentru manipularea și compararea pozițiilor.
+
+\begin{DoxyNote}{Note}
+Coordonatele pornesc de la (0,0) în colțul stânga-\/sus 
+\end{DoxyNote}
+
+
+\label{doc-constructors}
+\Hypertarget{structPosition_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structPosition_a9d56fe16af27a28c3a08b57274aff4eb}\index{Position@{Position}!Position@{Position}}
+\index{Position@{Position}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{Position()}{Position()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structPosition_a9d56fe16af27a28c3a08b57274aff4eb} 
+Position\+::\+Position (\begin{DoxyParamCaption}\item[{int}]{\+\_\+x}{ = {\ttfamily 0}, }\item[{int}]{\+\_\+y}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Constructor cu parametri opționali. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+x} & Coordonata X (implicit 0) \\
+\hline
+{\em \+\_\+y} & Coordonata Y (implicit 0)\\
+\hline
+\end{DoxyParams}
+Creează o nouă poziție cu coordonatele specificate. Dacă nu sunt furnizate parametri, inițializează poziția la (0,0).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structPosition_a9d56fe16af27a28c3a08b57274aff4eb}{Position}}\ origin;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creează\ poziția\ (0,0)}}
+\DoxyCodeLine{\mbox{\hyperlink{structPosition_a9d56fe16af27a28c3a08b57274aff4eb}{Position}}\ pos(10,\ 20);\ \ \ \ \ \ \textcolor{comment}{//\ Creează\ poziția\ (10,20)}}
+
+\end{DoxyCode}
+ \Hypertarget{structPosition_a3a9d2597283a5b09328cbe2391da0775}\index{Position@{Position}!Position@{Position}}
+\index{Position@{Position}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{Position()}{Position()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structPosition_a3a9d2597283a5b09328cbe2391da0775} 
+Position\+::\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPosition}{Position}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Constructor de copiere. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Poziția de copiat\\
+\hline
+\end{DoxyParams}
+Creează o copie exactă a unei alte poziții. 
+
+\label{doc-func-members}
+\Hypertarget{structPosition_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structPosition_a2536e7db959c42035c7f908a3ed28ac0}\index{Position@{Position}!operator=@{operator=}}
+\index{operator=@{operator=}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{structPosition_a2536e7db959c42035c7f908a3ed28ac0} 
+\mbox{\hyperlink{structPosition}{Position}} Position\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPosition}{Position}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Operator de atribuire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Poziția sursă \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referință la obiectul curent
+\end{DoxyReturn}
+Copiază valorile coordonatelor din altă poziție. \Hypertarget{structPosition_acf13e7e45c7c07a67c2adf2f7e1dcc5f}\index{Position@{Position}!operator==@{operator==}}
+\index{operator==@{operator==}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{structPosition_acf13e7e45c7c07a67c2adf2f7e1dcc5f} 
+bool Position\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPosition}{Position}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Operator de egalitate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Poziția de comparat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true dacă pozițiile sunt identice, false altfel
+\end{DoxyReturn}
+Compară două poziții verificând dacă au aceleași coordonate x și y.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structPosition_a9d56fe16af27a28c3a08b57274aff4eb}{Position}}\ p1(5,\ 10);}
+\DoxyCodeLine{\mbox{\hyperlink{structPosition_a9d56fe16af27a28c3a08b57274aff4eb}{Position}}\ p2(5,\ 10);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (p1\ ==\ p2)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Pozițiile\ sunt\ identice\(\backslash\)n"{}};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Position_8hpp}{Position.\+hpp}}\item 
+Position.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,78 @@
+\doxysection{Apple.\+hpp File Reference}
+\hypertarget{Apple_8hpp}{}\label{Apple_8hpp}\index{Apple.hpp@{Apple.hpp}}
+
+
+Definirea clasei \doxylink{classApple}{Apple} pentru gestionarea mărului în joc.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}Position.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classApple}{Apple}}
+\begin{DoxyCompactList}\small\item\em Clasă pentru reprezentarea mărului în jocul Snake. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \mbox{\hyperlink{Apple_8hpp_a68ac4db246592e7654e4ab765c538d13}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{classApple}{Apple}} \&apple)
+\begin{DoxyCompactList}\small\item\em Operator de intrare pentru citirea unui măr. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{Apple_8hpp_a9b40f3df2e6be68b2b5c045bea43b76e}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{classApple}{Apple}} \&apple)
+\begin{DoxyCompactList}\small\item\em Operator de ieșire pentru afișarea unui măr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definirea clasei \doxylink{classApple}{Apple} pentru gestionarea mărului în joc. 
+
+@project Snake Game \begin{DoxyAuthor}{Author}
+Dodan Igor 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025
+\end{DoxyDate}
+Acest fișier conține definirea clasei \doxylink{classApple}{Apple} care reprezintă mărul colectabil în jocul Snake. Mărul are o poziție și poate fi plasat aleatoriu pe hartă. 
+
+\label{doc-func-members}
+\Hypertarget{Apple_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{Apple_8hpp_a9b40f3df2e6be68b2b5c045bea43b76e}\index{Apple.hpp@{Apple.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Apple.hpp@{Apple.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \label{Apple_8hpp_a9b40f3df2e6be68b2b5c045bea43b76e} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{const \mbox{\hyperlink{classApple}{Apple}} \&}]{apple}{}\end{DoxyParamCaption})}
+
+
+
+Operator de ieșire pentru afișarea unui măr. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Stream-\/ul de ieșire \\
+\hline
+{\em apple} & Mărul de afișat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referință la stream-\/ul de ieșire
+\end{DoxyReturn}
+Scrie poziția mărului în stream în format "{}x y"{}. \Hypertarget{Apple_8hpp_a68ac4db246592e7654e4ab765c538d13}\index{Apple.hpp@{Apple.hpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Apple.hpp@{Apple.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily \label{Apple_8hpp_a68ac4db246592e7654e4ab765c538d13} 
+std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in}{, }\item[{\mbox{\hyperlink{classApple}{Apple}} \&}]{apple}{}\end{DoxyParamCaption})}
+
+
+
+Operator de intrare pentru citirea unui măr. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Stream-\/ul de intrare \\
+\hline
+{\em apple} & Mărul în care se va citi \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referință la stream-\/ul de intrare
+\end{DoxyReturn}
+Citește poziția mărului din stream în format "{}x y"{}. 

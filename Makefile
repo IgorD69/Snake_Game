@@ -12,7 +12,7 @@ OBJ_DIR   = obj
 BIN_DIR   = bin
 TEST_DIR  = tests
 
-TARGET     = $(BIN_DIR)/Player.out
+TARGET     = $(BIN_DIR)/SnakeGame.out
 TEST_TARGET = $(BIN_DIR)/test_runner
 
 SRC       = $(wildcard $(SRC_DIR)/*.cpp)

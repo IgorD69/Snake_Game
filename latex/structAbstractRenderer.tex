@@ -1,0 +1,186 @@
+\doxysection{Abstract\+Renderer Struct Reference}
+\hypertarget{structAbstractRenderer}{}\label{structAbstractRenderer}\index{AbstractRenderer@{AbstractRenderer}}
+
+
+Interfață abstractă pentru sistemele de randare.  
+
+
+
+
+{\ttfamily \#include $<$Abstract\+\_\+\+Renderer.\+hpp$>$}
+
+Inheritance diagram for Abstract\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structAbstractRenderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{structAbstractRenderer_ab0a47aea5951b77e6861edcb6997388c}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+Renderer}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{structAbstractRenderer_ada233680fb38c1537656065bdc573088}{Clear\+Screen}} ()=0
+\begin{DoxyCompactList}\small\item\em Șterge ecranul. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{structAbstractRenderer_a599ef6d387695feb5c528ace47866e56}{Draw\+Image}} (\mbox{\hyperlink{structPosition}{Position}} top\+Left, \mbox{\hyperlink{structPosition}{Position}} bottom\+Right, const \mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{Game\+Image}} \&image)=0
+\begin{DoxyCompactList}\small\item\em Desenează o imagine în regiunea specificată \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{structAbstractRenderer_a291d4db6eccc2b4ed61baea3c55b9af7}{Write\+Text}} (\mbox{\hyperlink{structPosition}{Position}} position, const std\+::string \&text)=0
+\begin{DoxyCompactList}\small\item\em Scrie text la o poziție specificată \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfață abstractă pentru sistemele de randare. 
+
+\doxylink{structAbstractRenderer}{Abstract\+Renderer} definește contractul pentru toate clasele care gestionează afișarea grafică a jocului. Folosește pattern-\/ul Strategy pentru a permite schimbarea sistemului de randare.
+
+Implementările concrete pot include\+:
+\begin{DoxyItemize}
+\item Cmd\+Renderer pentru randare în terminal (ncurses)
+\item \doxylink{classRenderer}{Renderer} pentru randare cu Raylib
+\item SDLRenderer pentru randare cu SDL
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Toate metodele sunt pure virtual și trebuie implementate de clasele derivate 
+\end{DoxyNote}
+
+
+\label{doc-constructors}
+\Hypertarget{structAbstractRenderer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structAbstractRenderer_ab0a47aea5951b77e6861edcb6997388c}\index{AbstractRenderer@{AbstractRenderer}!````~AbstractRenderer@{\texorpdfstring{$\sim$}{\string~}AbstractRenderer}}
+\index{````~AbstractRenderer@{\texorpdfstring{$\sim$}{\string~}AbstractRenderer}!AbstractRenderer@{AbstractRenderer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}AbstractRenderer()}{\string~AbstractRenderer()}}
+{\footnotesize\ttfamily \label{structAbstractRenderer_ab0a47aea5951b77e6861edcb6997388c} 
+virtual Abstract\+Renderer\+::\texorpdfstring{$\sim$}{\string~}\+Abstract\+Renderer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destructor virtual. 
+
+Asigură că destructorii claselor derivate sunt apelați corect când obiectele sunt șterse prin pointeri la clasa de bază. 
+
+\label{doc-func-members}
+\Hypertarget{structAbstractRenderer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structAbstractRenderer_ada233680fb38c1537656065bdc573088}\index{AbstractRenderer@{AbstractRenderer}!ClearScreen@{ClearScreen}}
+\index{ClearScreen@{ClearScreen}!AbstractRenderer@{AbstractRenderer}}
+\doxysubsubsection{\texorpdfstring{ClearScreen()}{ClearScreen()}}
+{\footnotesize\ttfamily \label{structAbstractRenderer_ada233680fb38c1537656065bdc573088} 
+virtual void Abstract\+Renderer\+::\+Clear\+Screen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Șterge ecranul. 
+
+Pregătește ecranul pentru un nou frame de randare. În funcție de implementare, poate\+:
+\begin{DoxyItemize}
+\item Șterge terminalul și repoziționa cursorul
+\item Umple fereastra cu o culoare de fundal
+\item Reseta buffer-\/ul de randare
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{AbstractRenderer*\ renderer\ =\ \textcolor{keyword}{new}\ Renderer();}
+\DoxyCodeLine{renderer-\/>\mbox{\hyperlink{structAbstractRenderer_ada233680fb38c1537656065bdc573088}{ClearScreen}}();\ \ \textcolor{comment}{//\ Șterge\ ecranul}}
+\DoxyCodeLine{\textcolor{comment}{//\ Desenează\ noile\ elemente...}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Apelată de obicei la începutul fiecărui frame 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{classRenderer_ababc6342282bb96257ad89039639d563}{Renderer}}.
+
+\Hypertarget{structAbstractRenderer_a599ef6d387695feb5c528ace47866e56}\index{AbstractRenderer@{AbstractRenderer}!DrawImage@{DrawImage}}
+\index{DrawImage@{DrawImage}!AbstractRenderer@{AbstractRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawImage()}{DrawImage()}}
+{\footnotesize\ttfamily \label{structAbstractRenderer_a599ef6d387695feb5c528ace47866e56} 
+virtual void Abstract\+Renderer\+::\+Draw\+Image (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{top\+Left}{, }\item[{\mbox{\hyperlink{structPosition}{Position}}}]{bottom\+Right}{, }\item[{const \mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{Game\+Image}} \&}]{image}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Desenează o imagine în regiunea specificată 
+
+
+\begin{DoxyParams}{Parameters}
+{\em top\+Left} & Colțul stânga-\/sus al regiunii de desenat \\
+\hline
+{\em bottom\+Right} & Colțul dreapta-\/jos al regiunii de desenat (nefolosit în implementarea actuală) \\
+\hline
+{\em image} & Imaginea de desenat (matrice de caractere)\\
+\hline
+\end{DoxyParams}
+Randează imaginea jocului (harta, șarpele, mărul) pe ecran. Fiecare caracter din imagine este interpretat și desenat cu culoarea/stilul corespunzător\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}.\textquotesingle{} = gol (nu se desenează)
+\item \textquotesingle{}\#\textquotesingle{} = perete (alb/gri)
+\item \textquotesingle{}O\textquotesingle{} = șarpe (verde)
+\item \textquotesingle{}@\textquotesingle{} = măr (roșu)
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{Abstract__Renderer_8hpp_ae40352f49309719fde7a321cc221b547}{GameImage}}\ image(20,\ std::string(40,\ \textcolor{charliteral}{'.'}));}
+\DoxyCodeLine{image[10][20]\ =\ \textcolor{charliteral}{'@'};\ \ \textcolor{comment}{//\ Măr}}
+\DoxyCodeLine{image[10][21]\ =\ \textcolor{charliteral}{'O'};\ \ \textcolor{comment}{//\ Șarpe}}
+\DoxyCodeLine{renderer-\/>DrawImage(Position(0,\ 0),\ Position(800,\ 600),\ image);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Implementarea concretă decide cum se mapează caracterele la grafică 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{classRenderer_a8384bd97a2ad6015bebdd66f29c66d83}{Renderer}}.
+
+\Hypertarget{structAbstractRenderer_a291d4db6eccc2b4ed61baea3c55b9af7}\index{AbstractRenderer@{AbstractRenderer}!WriteText@{WriteText}}
+\index{WriteText@{WriteText}!AbstractRenderer@{AbstractRenderer}}
+\doxysubsubsection{\texorpdfstring{WriteText()}{WriteText()}}
+{\footnotesize\ttfamily \label{structAbstractRenderer_a291d4db6eccc2b4ed61baea3c55b9af7} 
+virtual void Abstract\+Renderer\+::\+Write\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{position}{, }\item[{const std\+::string \&}]{text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Scrie text la o poziție specificată 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Poziția unde se scrie textul (colțul stânga-\/sus) \\
+\hline
+{\em text} & Textul de afișat\\
+\hline
+\end{DoxyParams}
+Afișează text pe ecran la coordonatele date. Folosit pentru\+:
+\begin{DoxyItemize}
+\item Afișarea scorului
+\item Afișarea mesajelor (Game Over, instrucțiuni)
+\item Debugarea poziițiilor
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{renderer-\/>WriteText(Position(10,\ 10),\ \textcolor{stringliteral}{"{}Score:\ 5"{}});}
+\DoxyCodeLine{renderer-\/>WriteText(Position(300,\ 300),\ \textcolor{stringliteral}{"{}GAME\ OVER!"{}});}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Poziția poate fi în pixeli sau în caractere, depinde de implementare 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{classRenderer_a11a66b4c970f121093709cec5814e73f}{Renderer}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Abstract__Renderer_8hpp}{Abstract\+\_\+\+Renderer.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,370 @@
+\chapter{Ghid de Implementare -\/ Laborator 06 }
+\hypertarget{md_README}{}\label{md_README}\index{Ghid de Implementare -\/ Laborator 06@{Ghid de Implementare -\/ Laborator 06}}
+\label{md_README_autotoc_md0}%
+\Hypertarget{md_README_autotoc_md0}%
+
+
+{\bfseries{Proiect\+:}} Snake Game {\bfseries{Autor\+:}} Igor Dodan {\bfseries{Laborator\+:}} Lab 06 -\/ Suportul proiectului și elaborarea documentației\hypertarget{md_README_autotoc_md1}{}\doxysection{\texorpdfstring{Sumar}{Sumar}}\label{md_README_autotoc_md1}
+Acest document descrie pașii de implementare pentru cerințele laboratorului 06, incluzând\+:
+\begin{DoxyItemize}
+\item Documentarea codului sursă cu comentarii Doxygen
+\item Crearea fișierului README.\+md complet
+\item Implementarea testelor unitare
+\item Actualizarea sistemului de build (Makefile)
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{📋 Cerințe Îndeplinite}{📋 Cerințe Îndeplinite}}\label{md_README_autotoc_md2}
+\hypertarget{md_README_autotoc_md3}{}\doxysubsection{\texorpdfstring{✅ 1. Documentația Codului Sursă}{✅ 1. Documentația Codului Sursă}}\label{md_README_autotoc_md3}
+Am adăugat documentație completă folosind stilul Doxygen pentru următoarele fișiere\+:\hypertarget{md_README_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Position.\+hpp}{Position.\+hpp}}\label{md_README_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Metainformație (nume proiect, autor, an)
+\item Descrierea clasei \doxylink{structPosition}{Position}
+\item Documentație pentru toate metodele publice și private
+\item Exemple de utilizare pentru funcții complexe
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{Apple.\+hpp}{Apple.\+hpp}}\label{md_README_autotoc_md5}
+
+\begin{DoxyItemize}
+\item Metainformație completă
+\item Descrierea clasei \doxylink{classApple}{Apple}
+\item Documentație detaliată pentru metode
+\item Note despre comportamentul aleatoriu
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{Direction.\+hpp}{Direction.\+hpp}}\label{md_README_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Metainformație
+\item Documentație pentru enumerare
+\item Funcții helper documentate
+\item Exemple de conversie taste-\/direcții
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Map.\+hpp}{Map.\+hpp}}\label{md_README_autotoc_md7}
+
+\begin{DoxyItemize}
+\item Metainformație
+\item Descrierea clasei \doxylink{classMap}{Map}
+\item Documentație pentru verificarea limitelor
+\item Note despre sistemul de coordonate
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md8}{}\doxysubsection{\texorpdfstring{✅ 2. Fișierul README.\+md}{✅ 2. Fișierul README.\+md}}\label{md_README_autotoc_md8}
+Am creat un fișier README.\+md complet care conține\+:\hypertarget{md_README_autotoc_md9}{}\doxysubsubsection{\texorpdfstring{Descrierea Proiectului}{Descrierea Proiectului}}\label{md_README_autotoc_md9}
+
+\begin{DoxyItemize}
+\item Prezentare generală a jocului
+\item Scopul și funcționalitatea
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md10}{}\doxysubsubsection{\texorpdfstring{Regulile Jocului}{Regulile Jocului}}\label{md_README_autotoc_md10}
+
+\begin{DoxyItemize}
+\item Obiectiv
+\item Controale (W/\+A/\+S/D și săgeți)
+\item Mecanica jocului
+\item Condiții de game over
+\item Sistem de scor
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md11}{}\doxysubsubsection{\texorpdfstring{Dependențe}{Dependențe}}\label{md_README_autotoc_md11}
+
+\begin{DoxyItemize}
+\item {\bfseries{Mediul de dezvoltare\+:}} Linux/\+Unix/mac\+OS/\+WSL
+\item {\bfseries{Compilator\+:}} g++ (versiunea 7.\+0+)
+\item {\bfseries{Biblioteci\+:}}
+\begin{DoxyItemize}
+\item ncurses (pentru interfața grafică)
+\item Google Test (pentru teste unitare -\/ opțional)
+\end{DoxyItemize}
+\item Instrucțiuni de instalare pentru diferite distribuții
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md12}{}\doxysubsubsection{\texorpdfstring{Construirea Aplicației}{Construirea Aplicației}}\label{md_README_autotoc_md12}
+
+\begin{DoxyItemize}
+\item Comenzi pentru clonare repository
+\item Comenzi de compilare ({\ttfamily make})
+\item Comenzi de rulare ({\ttfamily ./\+Player.out})
+\item Comenzi de curățare ({\ttfamily make clean})
+\item Comenzi pentru teste ({\ttfamily make tests}, {\ttfamily make run\+\_\+tests})
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md13}{}\doxysubsection{\texorpdfstring{✅ 3. Teste Unitare}{✅ 3. Teste Unitare}}\label{md_README_autotoc_md13}
+Am creat directorul {\ttfamily tests/} cu următoarele fișiere de test\+:\hypertarget{md_README_autotoc_md14}{}\doxysubsubsection{\texorpdfstring{tests/test\+\_\+position.\+cpp}{tests/test\+\_\+position.\+cpp}}\label{md_README_autotoc_md14}
+{\bfseries{30 de teste}} pentru clasa \doxylink{structPosition}{Position}\+:
+\begin{DoxyItemize}
+\item Constructori (implicit și cu parametri)
+\item Getteri și setteri (getX, getY, setX, setY, set\+Position)
+\item Operatori (==, !=)
+\item Verificarea limitelor (is\+Within\+Bounds)
+\item Distanța Manhattan (manhattan\+Distance)
+\item Cazuri speciale (coordonate negative, margini, etc.)
+\end{DoxyItemize}
+
+{\bfseries{Teste importante\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TEST\_F(PositionTest,\ DefaultConstructor)}
+\DoxyCodeLine{TEST\_F(PositionTest,\ EqualityOperator)}
+\DoxyCodeLine{TEST\_F(PositionTest,\ IsWithinBounds)}
+\DoxyCodeLine{TEST\_F(PositionTest,\ ManhattanDistance)}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md15}{}\doxysubsubsection{\texorpdfstring{tests/test\+\_\+apple.\+cpp}{tests/test\+\_\+apple.\+cpp}}\label{md_README_autotoc_md15}
+{\bfseries{23 de teste}} pentru clasa \doxylink{classApple}{Apple}\+:
+\begin{DoxyItemize}
+\item Constructori
+\item Getteri și setteri poziție
+\item Generarea poziției aleatoare
+\item Verificarea poziției (is\+At\+Position)
+\item Funcția respawn
+\item Varietatea pozițiilor generate
+\item Cazuri edge (margini, spații înguste)
+\end{DoxyItemize}
+
+{\bfseries{Teste importante\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TEST\_F(AppleTest,\ GenerateRandomPosition)}
+\DoxyCodeLine{TEST\_F(AppleTest,\ RandomPositionVariability)}
+\DoxyCodeLine{TEST\_F(AppleTest,\ Respawn)}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md16}{}\doxysubsubsection{\texorpdfstring{tests/test\+\_\+map.\+cpp}{tests/test\+\_\+map.\+cpp}}\label{md_README_autotoc_md16}
+{\bfseries{27 de teste}} pentru clasa \doxylink{classMap}{Map}\+:
+\begin{DoxyItemize}
+\item Constructori (implicit și cu parametri)
+\item Getteri și setteri (width, height)
+\item Verificarea limitelor (is\+Within\+Bounds)
+\item Verificarea marginilor (is\+On\+Border)
+\item Calcul arie (get\+Area)
+\item Poziție centrală (get\+Center\+Position)
+\item Generarea poziției aleatoare
+\item Funcția reset
+\item Operatori de comparare
+\item Hărți de dimensiuni diferite
+\end{DoxyItemize}
+
+{\bfseries{Teste importante\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TEST\_F(MapTest,\ IsWithinBounds)}
+\DoxyCodeLine{TEST\_F(MapTest,\ IsOnBorder)}
+\DoxyCodeLine{TEST\_F(MapTest,\ GetCenterPosition)}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md17}{}\doxysubsection{\texorpdfstring{✅ 4. Actualizarea Makefile}{✅ 4. Actualizarea Makefile}}\label{md_README_autotoc_md17}
+Am creat un Makefile complet cu următoarele funcționalități\+:\hypertarget{md_README_autotoc_md18}{}\doxysubsubsection{\texorpdfstring{Comenzi Principale}{Comenzi Principale}}\label{md_README_autotoc_md18}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Compilare\ joc}
+\DoxyCodeLine{make\ run\ \ \ \ \ \ \ \ \ \ \#\ Compilare\ și\ rulare\ joc}
+\DoxyCodeLine{make\ clean\ \ \ \ \ \ \ \ \#\ Curățare\ fișiere\ compilate}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md19}{}\doxysubsubsection{\texorpdfstring{Comenzi pentru Teste}{Comenzi pentru Teste}}\label{md_README_autotoc_md19}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ tests\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Compilare\ teste}
+\DoxyCodeLine{make\ run\_tests\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Rulare\ toate\ testele}
+\DoxyCodeLine{make\ run\_tests\_verbose\ \ \ \ \ \ \ \#\ Rulare\ teste\ cu\ detalii}
+\DoxyCodeLine{make\ run\_tests\_filter\ FILTER=PositionTest.*\ \ \#\ Rulare\ teste\ filtrate}
+\DoxyCodeLine{make\ clean\_tests\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Curățare\ fișiere\ teste}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md20}{}\doxysubsubsection{\texorpdfstring{Comenzi Utilitare}{Comenzi Utilitare}}\label{md_README_autotoc_md20}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ check\_deps\ \ \ \ \#\ Verifică\ dependențele\ instalate}
+\DoxyCodeLine{make\ rebuild\ \ \ \ \ \ \ \#\ Curățare\ și\ recompilare\ completă}
+\DoxyCodeLine{make\ clean\_all\ \ \ \ \ \#\ Curățare\ completă\ (joc\ +\ teste)}
+\DoxyCodeLine{make\ help\ \ \ \ \ \ \ \ \ \ \#\ Afișează\ mesaj\ de\ ajutor}
+\DoxyCodeLine{make\ install\_deps\ \ \#\ Instalează\ dependențele\ (Ubuntu/Debian)}
+\DoxyCodeLine{make\ docs\ \ \ \ \ \ \ \ \ \ \#\ Generează\ documentație\ Doxygen}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md21}{}\doxysection{\texorpdfstring{🚀 Pași de Utilizare}{🚀 Pași de Utilizare}}\label{md_README_autotoc_md21}
+\hypertarget{md_README_autotoc_md22}{}\doxysubsection{\texorpdfstring{Pas 1\+: Configurare Ramură}{Pas 1\+: Configurare Ramură}}\label{md_README_autotoc_md22}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ Snake\_Game}
+\DoxyCodeLine{git\ checkout\ -\/b\ lab06}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md23}{}\doxysubsection{\texorpdfstring{Pas 2\+: Adăugare Fișiere}{Pas 2\+: Adăugare Fișiere}}\label{md_README_autotoc_md23}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Creează\ directorul\ tests}
+\DoxyCodeLine{mkdir\ -\/p\ tests}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Copiază\ fișierele\ furnizate\ în\ locațiile\ corespunzătoare}
+\DoxyCodeLine{\#\ -\/\ README.md\ (în\ root)}
+\DoxyCodeLine{\#\ -\/\ Position.hpp,\ Apple.hpp,\ Direction.hpp,\ Map.hpp\ (actualizate)}
+\DoxyCodeLine{\#\ -\/\ tests/test\_position.cpp}
+\DoxyCodeLine{\#\ -\/\ tests/test\_apple.cpp}
+\DoxyCodeLine{\#\ -\/\ tests/test\_map.cpp}
+\DoxyCodeLine{\#\ -\/\ Makefile\ (actualizat)}
+\DoxyCodeLine{\#\ -\/\ Doxyfile\ (opțional,\ pentru\ documentație)}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md24}{}\doxysubsection{\texorpdfstring{Pas 3\+: Verificare Dependențe}{Pas 3\+: Verificare Dependențe}}\label{md_README_autotoc_md24}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ check\_deps}
+
+\end{DoxyCode}
+
+
+Dacă lipsesc dependențe, pe Ubuntu/\+Debian\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Pentru\ ncurses}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ libncurses5-\/dev\ libncursesw5-\/dev}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Pentru\ Google\ Test}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ libgtest-\/dev}
+\DoxyCodeLine{cd\ /usr/src/gtest}
+\DoxyCodeLine{sudo\ cmake\ CMakeLists.txt}
+\DoxyCodeLine{sudo\ make}
+\DoxyCodeLine{sudo\ cp\ *.a\ /usr/lib}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md25}{}\doxysubsection{\texorpdfstring{Pas 4\+: Compilare și Testare}{Pas 4\+: Compilare și Testare}}\label{md_README_autotoc_md25}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Compilare\ joc}
+\DoxyCodeLine{make}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Rulare\ joc}
+\DoxyCodeLine{make\ run}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Compilare\ teste}
+\DoxyCodeLine{make\ tests}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Rulare\ teste}
+\DoxyCodeLine{make\ run\_tests}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md26}{}\doxysubsection{\texorpdfstring{Pas 5\+: Verificare Documentație}{Pas 5\+: Verificare Documentație}}\label{md_README_autotoc_md26}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Generare\ documentație\ HTML\ (dacă\ ai\ Doxygen\ instalat)}
+\DoxyCodeLine{doxygen\ Doxyfile}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Documentația\ va\ fi\ în\ directorul\ docs/html/}
+\DoxyCodeLine{\#\ Deschide\ docs/html/index.html\ în\ browser}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md27}{}\doxysubsection{\texorpdfstring{Pas 6\+: Commit și Push}{Pas 6\+: Commit și Push}}\label{md_README_autotoc_md27}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ add\ .}
+\DoxyCodeLine{git\ commit\ -\/m\ "{}Lab06:\ Add\ documentation\ and\ unit\ tests"{}}
+\DoxyCodeLine{git\ push\ origin\ lab06}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md28}{}\doxysection{\texorpdfstring{📊 Statistici Implementare}{📊 Statistici Implementare}}\label{md_README_autotoc_md28}
+\hypertarget{md_README_autotoc_md29}{}\doxysubsection{\texorpdfstring{Linii de Cod Adăugate}{Linii de Cod Adăugate}}\label{md_README_autotoc_md29}
+
+\begin{DoxyItemize}
+\item {\bfseries{Documentație în headers\+:}} \texorpdfstring{$\sim$}{\string~}500 linii
+\item {\bfseries{README.\+md\+:}} \texorpdfstring{$\sim$}{\string~}300 linii
+\item {\bfseries{Teste unitare\+:}} \texorpdfstring{$\sim$}{\string~}800 linii
+\item {\bfseries{Makefile\+:}} \texorpdfstring{$\sim$}{\string~}250 linii
+\item {\bfseries{Total\+:}} \texorpdfstring{$\sim$}{\string~}1850 linii noi
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md30}{}\doxysubsection{\texorpdfstring{Acoperire Teste}{Acoperire Teste}}\label{md_README_autotoc_md30}
+
+\begin{DoxyItemize}
+\item {\bfseries{\doxylink{structPosition}{Position}\+:}} 30 teste, \texorpdfstring{$\sim$}{\string~}95\% acoperire
+\item {\bfseries{\doxylink{classApple}{Apple}\+:}} 23 teste, \texorpdfstring{$\sim$}{\string~}90\% acoperire
+\item {\bfseries{\doxylink{classMap}{Map}\+:}} 27 teste, \texorpdfstring{$\sim$}{\string~}90\% acoperire
+\item {\bfseries{Total\+:}} 80 de teste unitare
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md31}{}\doxysubsection{\texorpdfstring{Timp Estimat de Execuție}{Timp Estimat de Execuție}}\label{md_README_autotoc_md31}
+
+\begin{DoxyItemize}
+\item Compilare joc\+: \texorpdfstring{$\sim$}{\string~}2-\/3 secunde
+\item Compilare teste\+: \texorpdfstring{$\sim$}{\string~}3-\/5 secunde
+\item Rulare teste\+: \texorpdfstring{$<$}{<}1 secundă
+\item Generare documentație\+: \texorpdfstring{$\sim$}{\string~}5-\/10 secunde
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md32}{}\doxysection{\texorpdfstring{📝 Note Importante}{📝 Note Importante}}\label{md_README_autotoc_md32}
+\hypertarget{md_README_autotoc_md33}{}\doxysubsection{\texorpdfstring{Pentru Evaluare}{Pentru Evaluare}}\label{md_README_autotoc_md33}
+
+\begin{DoxyEnumerate}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Toate fișierele header conțin\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item Metainformație completă (nume proiect, autor, an)
+\item Descriere detaliată a clasei
+\item Documentație pentru fiecare metodă
+\item Exemple unde este relevant
+\end{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+README.md conține\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item Descriere completă a proiectului
+\item Regulile jocului detaliate
+\item Lista completă a dependențelor
+\item Instrucțiuni clare de compilare și rulare
+\end{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Teste unitare\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item Directorul \`{}tests/\`{} creat
+\item Minimum 3 fișiere de test
+\item Testează clasele de date (\doxylink{structPosition}{Position}, \doxylink{classApple}{Apple}, \doxylink{classMap}{Map})
+\item Acoperire largă a funcționalităților
+\end{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Makefile actualizat\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item Target pentru compilare teste
+\item Target pentru rulare teste
+\item Comenzi de curățare pentru teste
+\item Documentație (help)
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md34}{}\doxysubsection{\texorpdfstring{Recomandări}{Recomandări}}\label{md_README_autotoc_md34}
+
+\begin{DoxyItemize}
+\item Rulează \`{}make check\+\_\+deps\`{} înainte de compilare
+\item Asigură-\/te că toate testele trec cu \`{}make run\+\_\+tests\`{}
+\item Verifică documentația generată cu Doxygen
+\item Testează jocul după fiecare modificare
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md35}{}\doxysubsection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{md_README_autotoc_md35}
+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Problema\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} ncurses nu este găsit 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ libncurses5-\/dev\ libncursesw5-\/dev}
+
+\end{DoxyCode}
+
+
+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Problema\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Google Test nu este găsit 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ libgtest-\/dev}
+\DoxyCodeLine{cd\ /usr/src/gtest\ \&\&\ sudo\ cmake\ .\ \&\&\ sudo\ make\ \&\&\ sudo\ cp\ *.a\ /usr/lib}
+
+\end{DoxyCode}
+
+
+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Problema\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Testele nu se compilează
+\begin{DoxyItemize}
+\item Verifică că toate header-\/urile sunt în același director cu testele
+\item Asigură-\/te că Google Test este instalat corect
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md36}{}\doxysection{\texorpdfstring{✅ Checklist Final}{✅ Checklist Final}}\label{md_README_autotoc_md36}
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Toate header-\/urile au documentație completă Doxygen
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] README.\+md conține toate secțiunile cerute
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Directorul \`{}tests/\`{} este creat
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Cel puțin 3 fișiere de test sunt implementate
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Makefile conține target-\/uri pentru teste
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Toate testele trec (\`{}make run\+\_\+tests\`{} reușește)
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Jocul compilează și rulează (\`{}make \&\& make run\`{})
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Documentația Doxygen se generează fără erori
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Toate fișierele sunt în ramura \`{}lab06\`{}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Modificările sunt push-\/ate pe Git\+Hub
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md37}{}\doxysection{\texorpdfstring{📚 Referințe}{📚 Referințe}}\label{md_README_autotoc_md37}
+
+\begin{DoxyItemize}
+\item \mbox{[}Doxygen Manual\mbox{]}(\href{https://www.doxygen.nl/manual/}{\texttt{https\+://www.\+doxygen.\+nl/manual/}})
+\item \mbox{[}Google Test Documentation\mbox{]}(\href{https://google.github.io/googletest/}{\texttt{https\+://google.\+github.\+io/googletest/}})
+\item \mbox{[}GNU Make Manual\mbox{]}(\href{https://www.gnu.org/software/make/manual/}{\texttt{https\+://www.\+gnu.\+org/software/make/manual/}})
+\item \mbox{[}ncurses Documentation\mbox{]}(\href{https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/}{\texttt{https\+://tldp.\+org/\+HOWTO/\+NCURSES-\/\+Programming-\/\+HOWTO/}})
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ 

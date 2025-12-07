@@ -1,0 +1,93 @@
+\doxysection{Map.\+hpp File Reference}
+\hypertarget{Map_8hpp}{}\label{Map_8hpp}\index{Map.hpp@{Map.hpp}}
+
+
+Definirea clasei \doxylink{classMap}{Map} pentru gestionarea hărții jocului.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classMap}{Map}}
+\begin{DoxyCompactList}\small\item\em Clasă pentru reprezentarea hărții jocului Snake. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \mbox{\hyperlink{Map_8hpp_a630b1ac3c04d33feca6586c634addf17}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{classMap}{Map}} \&board)
+\begin{DoxyCompactList}\small\item\em Operator de intrare pentru citirea unei hărți. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{Map_8hpp_af6930d95ac6bae1bdec925b5de439666}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{classMap}{Map}} \&board)
+\begin{DoxyCompactList}\small\item\em Operator de ieșire pentru afișarea unei hărți. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definirea clasei \doxylink{classMap}{Map} pentru gestionarea hărții jocului. 
+
+@project Snake Game \begin{DoxyAuthor}{Author}
+Dodan Igor 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025
+\end{DoxyDate}
+Acest fișier conține definirea clasei \doxylink{classMap}{Map} care reprezintă spațiul de joc în care se mișcă șarpele. Harta are dimensiuni fixe (lățime și înălțime) și oferă funcții pentru verificarea limitelor. 
+
+\label{doc-func-members}
+\Hypertarget{Map_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{Map_8hpp_af6930d95ac6bae1bdec925b5de439666}\index{Map.hpp@{Map.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Map.hpp@{Map.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \label{Map_8hpp_af6930d95ac6bae1bdec925b5de439666} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{const \mbox{\hyperlink{classMap}{Map}} \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Operator de ieșire pentru afișarea unei hărți. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Stream-\/ul de ieșire \\
+\hline
+{\em board} & Harta de afișat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referință la stream-\/ul de ieșire
+\end{DoxyReturn}
+Scrie dimensiunile hărții în stream în format "{}width height"{}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classMap}{Map}}\ map(60,\ 30);}
+\DoxyCodeLine{std::cout\ <<\ map;\ \ \textcolor{comment}{//\ Afișează\ "{}60\ 30"{}}}
+
+\end{DoxyCode}
+ \Hypertarget{Map_8hpp_a630b1ac3c04d33feca6586c634addf17}\index{Map.hpp@{Map.hpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Map.hpp@{Map.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily \label{Map_8hpp_a630b1ac3c04d33feca6586c634addf17} 
+std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in}{, }\item[{\mbox{\hyperlink{classMap}{Map}} \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Operator de intrare pentru citirea unei hărți. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Stream-\/ul de intrare \\
+\hline
+{\em board} & Harta în care se va citi \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referință la stream-\/ul de intrare
+\end{DoxyReturn}
+Citește dimensiunile hărții din stream în format "{}width height"{}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classMap}{Map}}\ map;}
+\DoxyCodeLine{std::cin\ >>\ map;\ \ \textcolor{comment}{//\ Citește\ "{}60\ 30"{}\ de\ la\ intrare}}
+
+\end{DoxyCode}
+ 

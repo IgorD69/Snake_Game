@@ -1,0 +1,169 @@
+\doxysection{Apple Class Reference}
+\hypertarget{classApple}{}\label{classApple}\index{Apple@{Apple}}
+
+
+Clasă pentru reprezentarea mărului în jocul Snake.  
+
+
+
+
+{\ttfamily \#include $<$Apple.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classApple_ae711ebce69bfa7165bb8b3bb28cc85cc}{Apple}} ()
+\begin{DoxyCompactList}\small\item\em Constructor implicit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classApple_ac612ef7f6aa711eff58631cb3f4a78d2}{Apple}} (const \mbox{\hyperlink{structPosition}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em Constructor cu poziție specificată \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classApple_ae030cbec8b75758958512799130596f5}{Apple}} (const \mbox{\hyperlink{classApple}{Apple}} \&other)
+\begin{DoxyCompactList}\small\item\em Constructor de copiere. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPosition}{Position}} \mbox{\hyperlink{classApple_ab68b627d76f2ddbbde33d80efc7eb54e}{Get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Obține poziția curentă a mărului. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classApple}{Apple}} \mbox{\hyperlink{classApple_a9dc3ef940e8cf84c09934174eeed292d}{operator=}} (const \mbox{\hyperlink{classApple}{Apple}} \&other)
+\begin{DoxyCompactList}\small\item\em Operator de atribuire. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classApple_a3db1477f6b28d7ee570f96028443724f}{operator==}} (const \mbox{\hyperlink{classApple}{Apple}} \&other) const
+\begin{DoxyCompactList}\small\item\em Operator de egalitate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clasă pentru reprezentarea mărului în jocul Snake. 
+
+\doxylink{classApple}{Apple} stochează poziția mărului pe hartă și oferă funcționalități pentru plasarea și verificarea poziției acestuia.
+
+\begin{DoxyNote}{Note}
+Când șarpele mănâncă mărul, acesta trebuie replasat într-\/o poziție nouă 
+\end{DoxyNote}
+
+
+\label{doc-constructors}
+\Hypertarget{classApple_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classApple_ae711ebce69bfa7165bb8b3bb28cc85cc}\index{Apple@{Apple}!Apple@{Apple}}
+\index{Apple@{Apple}!Apple@{Apple}}
+\doxysubsubsection{\texorpdfstring{Apple()}{Apple()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classApple_ae711ebce69bfa7165bb8b3bb28cc85cc} 
+Apple\+::\+Apple (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructor implicit. 
+
+Creează un măr la poziția (0,0). Această poziție poate fi modificată ulterior prin Set\+Position(). \Hypertarget{classApple_ac612ef7f6aa711eff58631cb3f4a78d2}\index{Apple@{Apple}!Apple@{Apple}}
+\index{Apple@{Apple}!Apple@{Apple}}
+\doxysubsubsection{\texorpdfstring{Apple()}{Apple()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classApple_ac612ef7f6aa711eff58631cb3f4a78d2} 
+Apple\+::\+Apple (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPosition}{Position}} \&}]{position}{}\end{DoxyParamCaption})}
+
+
+
+Constructor cu poziție specificată 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Poziția inițială a mărului\\
+\hline
+\end{DoxyParams}
+Creează un măr la poziția dată.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Position\ pos(10,\ 15);}
+\DoxyCodeLine{\mbox{\hyperlink{classApple_ae711ebce69bfa7165bb8b3bb28cc85cc}{Apple}}\ apple(pos);\ \ \textcolor{comment}{//\ Măr\ la\ poziția\ (10,15)}}
+
+\end{DoxyCode}
+ \Hypertarget{classApple_ae030cbec8b75758958512799130596f5}\index{Apple@{Apple}!Apple@{Apple}}
+\index{Apple@{Apple}!Apple@{Apple}}
+\doxysubsubsection{\texorpdfstring{Apple()}{Apple()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classApple_ae030cbec8b75758958512799130596f5} 
+Apple\+::\+Apple (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classApple}{Apple}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Constructor de copiere. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Mărul de copiat\\
+\hline
+\end{DoxyParams}
+Creează o copie a unui alt măr, inclusiv poziția acestuia. 
+
+\label{doc-func-members}
+\Hypertarget{classApple_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classApple_ab68b627d76f2ddbbde33d80efc7eb54e}\index{Apple@{Apple}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!Apple@{Apple}}
+\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily \label{classApple_ab68b627d76f2ddbbde33d80efc7eb54e} 
+\mbox{\hyperlink{structPosition}{Position}} Apple\+::\+Get\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obține poziția curentă a mărului. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{structPosition}{Position} Poziția mărului
+\end{DoxyReturn}
+Returnează o copie a poziției curente a mărului pe hartă.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classApple_ae711ebce69bfa7165bb8b3bb28cc85cc}{Apple}}\ apple(Position(5,\ 5));}
+\DoxyCodeLine{Position\ pos\ =\ apple.GetPosition();}
+\DoxyCodeLine{std::cout\ <<\ \textcolor{stringliteral}{"{}Mărul\ este\ la:\ "{}}\ <<\ pos\ <<\ std::endl;}
+
+\end{DoxyCode}
+ \Hypertarget{classApple_a9dc3ef940e8cf84c09934174eeed292d}\index{Apple@{Apple}!operator=@{operator=}}
+\index{operator=@{operator=}!Apple@{Apple}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classApple_a9dc3ef940e8cf84c09934174eeed292d} 
+\mbox{\hyperlink{classApple}{Apple}} Apple\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classApple}{Apple}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Operator de atribuire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Mărul sursă \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classApple}{Apple} Referință la obiectul curent
+\end{DoxyReturn}
+Copiază poziția din alt măr în mărul curent. \Hypertarget{classApple_a3db1477f6b28d7ee570f96028443724f}\index{Apple@{Apple}!operator==@{operator==}}
+\index{operator==@{operator==}!Apple@{Apple}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{classApple_a3db1477f6b28d7ee570f96028443724f} 
+bool Apple\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classApple}{Apple}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Operator de egalitate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Mărul de comparat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true dacă mărele au aceeași poziție, false altfel
+\end{DoxyReturn}
+Compară două mere verificând dacă se află la aceeași poziție.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classApple_ae711ebce69bfa7165bb8b3bb28cc85cc}{Apple}}\ apple1(Position(5,\ 5));}
+\DoxyCodeLine{\mbox{\hyperlink{classApple_ae711ebce69bfa7165bb8b3bb28cc85cc}{Apple}}\ apple2(Position(5,\ 5));}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (apple1\ ==\ apple2)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Merele\ sunt\ la\ aceeași\ poziție\(\backslash\)n"{}};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Apple_8hpp}{Apple.\+hpp}}\item 
+Apple.\+cpp\end{DoxyCompactItemize}
