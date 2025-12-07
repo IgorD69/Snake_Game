@@ -1,8 +1,8 @@
 # Snake Game
 
-**Project:** Snake Game
-**Author:** Dodan Igor
-**Year:** 2025
+**Project:** Snake Game  
+**Author:** Dodan Igor  
+**Year:** 2025  
 
 ---
 
@@ -222,24 +222,34 @@ make run_tests_filter FILTER=PositionTest.*
 
 ```
 Snake_Game/
-├── main.cpp              # Application entry point
-├── Engine.hpp/cpp        # Main game engine
-├── Player.hpp/cpp        # Snake logic
-├── Apple.hpp/cpp         # Apple logic
-├── Map.hpp/cpp           # Map management
-├── Position.hpp/cpp      # Structure for coordinates
-├── Direction.hpp/cpp     # Enumeration for directions
-├── AbstractListener.hpp  # Interface for input
-├── CmdListener.hpp/cpp   # Terminal input
-├── Abstract_Renderer.hpp # Interface for rendering
-├── Renderer.hpp/cpp      # Raylib rendering
-├── tests/                # Unit tests
-│   ├── test_position.cpp
-│   ├── test_apple.cpp
-│   └── test_map.cpp
-├── Makefile             # Build system
-├── Doxyfile             # Doxygen configuration
-└── README.md            # This file
+├── html/                     # Generated HTML documentation
+├── latex/                    # Generated LaTeX documentation
+├── obj/                      # Compiled object files
+├── bin/                      # Binary executables
+├── LICENSE                   # Project license
+├── Map.cpp                   # Map implementation
+├── Position.cpp              # Position implementation
+├── Apple.cpp                 # Apple implementation
+├── Direction.cpp             # Direction implementation
+├── CmdListener.cpp           # Terminal input implementation
+├── main.cpp                  # Application entry point
+├── Engine.cpp                # Game engine implementation
+├── Renderer.cpp              # Raylib rendering implementation
+├── Player.cpp                # Snake logic implementation
+├── doxygen_config.sh         # Doxygen configuration script
+├── CmdListener.hpp           # Terminal input interface
+├── AbstractListener.hpp      # Abstract input interface
+├── Engine.hpp                # Game engine header
+├── Renderer.hpp              # Raylib renderer header
+├── Abstract_Renderer.hpp     # Abstract renderer interface
+├── Player.hpp                # Snake logic header
+├── Direction.hpp             # Direction enumeration
+├── Map.hpp                   # Map management header
+├── Apple.hpp                 # Apple header
+├── Position.hpp              # Position structure
+├── Doxyfile                  # Doxygen configuration
+├── Makefile                  # Build system
+└── README.md                 # This file
 ```
 
 ---
@@ -334,7 +344,6 @@ For questions, issues, or suggestions:
 
 - [Raylib Documentation](https://www.raylib.com/)
 - [Doxygen Manual](https://www.doxygen.nl/manual/)
-- [Google Test Documentation](https://google.github.io/googletest/)
 - [C++ Reference](https://en.cppreference.com/)
 
 ---
